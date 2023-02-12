@@ -79,5 +79,9 @@ SchoolService schoolService;
         return mark;
     }
 
-
+    @RequestMapping(value = "School/getByName",method = RequestMethod.GET)
+    public School getSchoolName(@RequestParam String SchoolName){
+        School school = schoolService.getSchoolName(SchoolName);
+        return school;
+    }
 }

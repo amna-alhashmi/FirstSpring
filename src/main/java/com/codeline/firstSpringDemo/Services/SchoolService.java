@@ -18,4 +18,8 @@ public class SchoolService {
         return schoolInterface.getSchoolById(id);
 
     }
+    public School getSchoolName(String name){
+        return schoolInterface.getSchoolName(name);
+
+    }
 }
