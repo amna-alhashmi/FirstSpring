@@ -1,6 +1,6 @@
 package com.codeline.firstSpringDemo.Repositoris;
 
-import com.codeline.firstSpringDemo.Models.School;
+import com.codeline.firstSpringDemo.Models.Mark;
 import com.codeline.firstSpringDemo.Models.Student;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -9,16 +9,16 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 
-public interface StudentInterface extends CrudRepository <Student,Integer> {
+    @Repository
 
-    @Query (value = "SELECT s FROM Student s")
-    List<Student> getAllStudent();
+    public interface MarkInterface extends CrudRepository<Mark,Integer> {
 
-    @Query(value = "SELECT s FROM Student s WHERE s.id= :studentId")
-    Student getStudentById(@Param("studentId")Integer id);
+        @Query(value = "SELECT s FROM Mark s")
+        List<Mark> getAllMark();
 
+        @Query(value = "SELECT s FROM Mark s WHERE s.id= :markId")
+        Mark getMarkById(@Param("markId")Integer id);
 
 
 }

@@ -15,13 +15,7 @@ public class Student {
     String LastName;
     String rollNumber;
 
-    public List<Course> getCourses() {
-        return courses;
-    }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
-    }
 
     public String getRollNumber() {
         return rollNumber;
@@ -30,8 +24,17 @@ public class Student {
     public void setRollNumber(String rollNumber) {
         this.rollNumber = rollNumber;
     }
+@ManyToOne
+@JoinColumn(name = "School_id",referencedColumnName = "id")
+    School school;
 
-    List<Course> courses;
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
 
     public Integer getId() {
         return id;

@@ -10,15 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
+public interface SchoolInterface extends CrudRepository<Student,Integer> {
+    @Query (value = "SELECT s FROM School s")
+    List<School> getAllSchools();
 
-public interface StudentInterface extends CrudRepository <Student,Integer> {
-
-    @Query (value = "SELECT s FROM Student s")
-    List<Student> getAllStudent();
-
-    @Query(value = "SELECT s FROM Student s WHERE s.id= :studentId")
-    Student getStudentById(@Param("studentId")Integer id);
-
-
+    @Query(value = "SELECT s FROM School s WHERE s.id= :schoolId")
+    School getSchoolById(@Param("schoolId")Integer id);
 
 }

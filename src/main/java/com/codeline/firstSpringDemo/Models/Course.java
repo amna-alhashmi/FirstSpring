@@ -1,19 +1,25 @@
 package com.codeline.firstSpringDemo.Models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
-
+@Entity
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     @Column(name="course_name")
     String name;
+@ManyToOne
+@JoinColumn(name = "Student_id",referencedColumnName = "id")
+    Student student;
 
-    List<Mark> Marks;
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 
     public Integer getId() {
         return id;
@@ -31,11 +37,7 @@ public class Course {
         this.name = name;
     }
 
-    public List<Mark> getMarks() {
-        return Marks;
-    }
 
-    public void setMarks(List<Mark> marks) {
-        Marks = marks;
-    }
+
+
 }
