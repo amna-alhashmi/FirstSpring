@@ -28,5 +28,12 @@ public class StudentService {
         return studentInterface.getStudentById(id);
 
     }
-
+    @Autowired
+    SchoolInterface schoolInterface;
+    public List<Student> getStudentsBySchoolName(String schoolName){
+        School school = schoolInterface.getBySchoolName(schoolName);
+        Integer schoolId = school.getId();
+        List<Student> studentList = studentInterface.getStudentsBySchoolId(schoolId);
+        return studentList;
+    }
 }

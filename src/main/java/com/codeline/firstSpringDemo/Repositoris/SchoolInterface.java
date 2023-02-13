@@ -11,12 +11,15 @@ import java.util.List;
 
 @Repository
 public interface SchoolInterface extends CrudRepository<Student,Integer> {
-    @Query (value = "SELECT s FROM School s")
+    @Query(value = "SELECT s FROM School s")
     List<School> getAllSchools();
 
     @Query(value = "SELECT s FROM School s WHERE s.id= :schoolId")
-    School getSchoolById(@Param("schoolId")Integer id);
+    School getSchoolById(@Param("schoolId") Integer id);
 
     @Query(value = "SELECT s FROM School s WHERE s.name= :schoolName")
-    School getSchoolName(@Param("schoolName")String name);
+    School getBySchoolName(@Param("schoolName") String schoolName);
 }
+//    @Query(value = "SELECT s From School s WHERE s.name = :schoolName")
+//    School getBySchoolName(@Param("schoolName") String schoolName);
+//}
