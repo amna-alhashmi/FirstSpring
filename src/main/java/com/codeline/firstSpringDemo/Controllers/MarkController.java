@@ -1,6 +1,7 @@
 package com.codeline.firstSpringDemo.Controllers;
 
 import com.codeline.firstSpringDemo.Models.Mark;
+import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Services.MarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +26,10 @@ public class MarkController {
     public Mark getMarkById(@RequestParam Integer MarkId) {
         Mark mark = markService.getMarkById(MarkId);
         return mark;
+    }
+    @RequestMapping(value = "getAllActiveMarks",method = RequestMethod.GET)
+    public List<Mark> getAllActiveMarks(){
+        List<Mark>  activeMarkList = markService.getAllActiveMarks();
+        return activeMarkList;
     }
 }

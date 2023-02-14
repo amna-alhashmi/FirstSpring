@@ -19,6 +19,9 @@ import java.util.List;
 
         @Query(value = "SELECT s FROM Mark s WHERE s.id= :markId")
         Mark getMarkById(@Param("markId")Integer id);
+        @Query(value = "SELECT s from Mark s where s.isActive = true")
+        List<Mark> getAllActiveMarks();
 
 
-}
+
+    }
