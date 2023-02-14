@@ -27,5 +27,8 @@ public class SchoolService {
 
         return schoolInterface.getAllActiveSchools();
     }
+    public List<School> getAllInActiveSchools(){
 
+        return schoolInterface.getAllInActiveSchools();
+    }
 }
