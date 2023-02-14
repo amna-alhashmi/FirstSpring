@@ -19,7 +19,13 @@ public class SchoolService {
 
     }
     public School getSchoolName(String schoolName){
-        return schoolInterface.getBySchoolName(schoolName);
+        School school=schoolInterface.getBySchoolName(schoolName);
+        return school;
 
     }
+    public List<School> getAllActiveSchools(){
+
+        return schoolInterface.getAllActiveSchools();
+    }
+
 }

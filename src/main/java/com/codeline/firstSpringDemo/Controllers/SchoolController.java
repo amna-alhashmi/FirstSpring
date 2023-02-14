@@ -15,20 +15,25 @@ import java.util.List;
 public class SchoolController {
     @Autowired
     SchoolService schoolService;
-    @RequestMapping(value = "school/getById", method = RequestMethod.GET)
-    public School getSchoolById(@RequestParam Integer schoolId) {
-        School school = schoolService.getSchoolById(schoolId);
-        return school;
-    }
     @RequestMapping(value = "school/getAll", method = RequestMethod.GET)
     public List<School> getAllSchools() {
         List<School> schools = schoolService.getAllSchools();
         return schools;
+    }
+    @RequestMapping(value = "school/getById", method = RequestMethod.GET)
+    public School getSchoolById(@RequestParam Integer schoolId) {
+        School school = schoolService.getSchoolById(schoolId);
+        return school;
     }
 
     @RequestMapping(value = "School/getByName", method = RequestMethod.GET)
     public School getSchoolName(@RequestParam String SchoolName) {
         School school = schoolService.getSchoolName(SchoolName);
         return school;
+    }
+    @RequestMapping(value = "getAllSchoolByIsActive")
+    public List<School> getAllActiveSchools(){
+        List<School>  activeSchoolsList = schoolService.getAllActiveSchools();
+        return activeSchoolsList;
     }
 }
