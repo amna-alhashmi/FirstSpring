@@ -20,6 +20,11 @@ public class CourseService {
         return courseInterface.getCourseById(id);
 
     }
+    public Course getCourseName(String courseName){
+        Course course=courseInterface.getCourseName (courseName);
+        return course;
+
+    }
     public List<Course> getAllActiveCourse(){
 
         return courseInterface.getAllActiveCourse();

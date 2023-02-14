@@ -20,6 +20,10 @@ import java.util.List;
 
         @Query(value = "SELECT s FROM Course s WHERE s.id= :courseId")
         Course getCourseById(@Param("courseId")Integer id);
+        @Query(value = "SELECT s FROM Course s WHERE s.name= :courseName")
+        Course getCourseName(@Param("courseName") String courseName);
         @Query(value = "SELECT s from Course s where s.isActive = true")
         List<Course> getAllActiveCourse();
-}
+
+
+    }
