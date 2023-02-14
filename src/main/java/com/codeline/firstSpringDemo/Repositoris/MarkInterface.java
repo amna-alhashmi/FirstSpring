@@ -1,6 +1,7 @@
 package com.codeline.firstSpringDemo.Repositoris;
 
 import com.codeline.firstSpringDemo.Models.Mark;
+import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -22,6 +23,6 @@ import java.util.List;
         @Query(value = "SELECT s from Mark s where s.isActive = true")
         List<Mark> getAllActiveMarks();
 
-
-
+        @Query(value = "SELECT s from Mark s where s.isActive = false")
+        List<Mark> getAllInActiveMarks();
     }

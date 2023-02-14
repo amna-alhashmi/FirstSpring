@@ -26,6 +26,9 @@ import java.util.List;
             return markInterface.getAllActiveMarks();
         }
 
+        public List<Mark> getAllInActiveMarks(){
 
+            return markInterface.getAllInActiveMarks();
+        }
 
 }
