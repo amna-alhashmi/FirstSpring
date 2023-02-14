@@ -13,6 +13,8 @@ import java.util.List;
 @Service
 public class StudentService {
     @Autowired
+    SchoolInterface schoolInterface;
+    @Autowired
     StudentInterface studentInterface;
     public void addStudent(){
         Student student=new Student();
@@ -22,18 +24,26 @@ public class StudentService {
     }
 
     public List<Student> getAllStudent(){
+
         return studentInterface.getAllStudent();
     }
     public Student getStudentById(Integer id){
         return studentInterface.getStudentById(id);
 
     }
-    @Autowired
-    SchoolInterface schoolInterface;
-    public List<Student> getStudentsBySchoolName(String schoolName){
-        School school = schoolInterface.getBySchoolName(schoolName);
-        Integer schoolId = school.getId();
-        List<Student> studentList = studentInterface.getStudentsBySchoolId(schoolId);
-        return studentList;
+    public Student getStudentName(String studentName){
+        Student student=studentInterface.getByStudentName(studentName);
+        return student;
+
     }
+
+
+
+
+//    public List<Student> getStudentsBySchoolName(String schoolName){
+//        School school = schoolInterface.getBySchoolName(schoolName);
+//        Integer schoolId = school.getId();
+//        List<Student> studentList = studentInterface.getStudentsBySchoolId(schoolId);
+//        return studentList;
+//    }
 }

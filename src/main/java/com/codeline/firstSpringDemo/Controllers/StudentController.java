@@ -1,5 +1,6 @@
 package com.codeline.firstSpringDemo.Controllers;
 
+import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
 import com.codeline.firstSpringDemo.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +27,11 @@ public class StudentController {
         Student student = studentService.getStudentById(studentId);
         return student;
     }
+    @RequestMapping(value = "student/getByName", method = RequestMethod.GET)
+    public Student getStudentName(@RequestParam String StudentName) {
+        Student student = studentService.getStudentName(StudentName);
+        return student;
+    }
+
+
 }
