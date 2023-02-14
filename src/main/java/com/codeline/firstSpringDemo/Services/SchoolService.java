@@ -31,4 +31,9 @@ public class SchoolService {
 
         return schoolInterface.getAllInActiveSchools();
     }
+    public School getLatestRow(){
+        School school=schoolInterface.getLatestRow();
+        return school;
+
+    }
 }
