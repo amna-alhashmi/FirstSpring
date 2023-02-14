@@ -18,10 +18,11 @@ public interface StudentInterface extends CrudRepository <Student,Integer> {
 
     @Query(value = "SELECT s FROM Student s WHERE s.id= :studentId")
     Student getStudentById(@Param("studentId")Integer id);
-    @Query(value = "SELECT s FROM Student s WHERE s.name= :studentName")
+    @Query(value = "SELECT s FROM Student s WHERE s.FirstName= :studentName")
     Student getByStudentName(@Param("studentName") String studentName);
 
-
+    @Query(value = "SELECT s from Student s where s.isActive = true")
+    List<Student> getAllActiveStudents();
 //@Query(value = "SELECT st FROM Student st WHERE st.school.id =:id")
 //List<Student> getStudentsBySchoolId(@Param("id") Integer id);
 

@@ -38,9 +38,9 @@ public class controllers {
     }
 
 
-    @RequestMapping(value = "student/getStudentBySchoolName", method = RequestMethod.GET)
-    public List<Student> getStudentsBySchoolName(@RequestParam String SchoolName) {
-        return studentService.getStudentsBySchoolName(SchoolName);
-
-    }
+//    @RequestMapping(value = "student/getStudentBySchoolName", method = RequestMethod.GET)
+//    public List<Student> getStudentsBySchoolName(@RequestParam String SchoolName) {
+//        return studentService.getStudentsBySchoolName(SchoolName);
+//
+//    }
 }

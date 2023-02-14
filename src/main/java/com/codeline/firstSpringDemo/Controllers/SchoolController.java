@@ -26,12 +26,12 @@ public class SchoolController {
         return school;
     }
 
-    @RequestMapping(value = "School/getByName", method = RequestMethod.GET)
+    @RequestMapping(value = "school/getByName", method = RequestMethod.GET)
     public School getSchoolName(@RequestParam String SchoolName) {
         School school = schoolService.getSchoolName(SchoolName);
         return school;
     }
-    @RequestMapping(value = "getAllSchoolByIsActive")
+    @RequestMapping(value = "getAllActiveSchools",method = RequestMethod.GET)
     public List<School> getAllActiveSchools(){
         List<School>  activeSchoolsList = schoolService.getAllActiveSchools();
         return activeSchoolsList;
