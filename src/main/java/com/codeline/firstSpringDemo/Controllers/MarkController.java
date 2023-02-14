@@ -38,4 +38,9 @@ public class MarkController {
         List<Mark>  inActiveMarkList = markService.getAllInActiveMarks();
         return inActiveMarkList;
     }
+    @RequestMapping(value = "getLatestRow", method = RequestMethod.GET)
+    public Mark getLatestRow() {
+        Mark mark = markService.getLatestRow();
+        return mark;
+    }
 }

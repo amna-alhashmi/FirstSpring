@@ -27,4 +27,6 @@ import java.util.List;
 
         @Query(value = "SELECT s from Course s where s.isActive = false")
         List<Course> getAllInActiveCourses();
+        @Query(value ="SELECT s from Course s where s.id=(SELECT max(s.id) from Course s)")
+        Course getLatestRow();
     }

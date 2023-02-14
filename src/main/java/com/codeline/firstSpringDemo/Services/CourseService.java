@@ -33,4 +33,9 @@ public class CourseService {
 
         return courseInterface.getAllInActiveCourses();
     }
+    public Course getLatestRow(){
+        Course course=courseInterface.getLatestRow();
+        return course;
+
+    }
 }

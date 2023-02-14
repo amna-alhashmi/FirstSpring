@@ -45,6 +45,11 @@ public class StudentService {
 
         return studentInterface.getAllInActiveStudents();
     }
+    public Student getLatestRow(){
+        Student student=studentInterface.getLatestRow();
+        return student;
+
+    }
 
 
 //    public List<Student> getStudentsBySchoolName(String schoolName){

@@ -25,4 +25,6 @@ import java.util.List;
 
         @Query(value = "SELECT s from Mark s where s.isActive = false")
         List<Mark> getAllInActiveMarks();
+        @Query(value ="SELECT s from Mark s where s.id=(SELECT max(s.id) from Mark s)")
+        Mark getLatestRow();
     }

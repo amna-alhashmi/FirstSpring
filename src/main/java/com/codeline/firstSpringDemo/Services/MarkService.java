@@ -30,5 +30,9 @@ import java.util.List;
 
             return markInterface.getAllInActiveMarks();
         }
+        public Mark getLatestRow(){
+            Mark mark=markInterface.getLatestRow();
+            return mark;
 
+        }
 }
