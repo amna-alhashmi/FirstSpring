@@ -1,6 +1,7 @@
 package com.codeline.firstSpringDemo.Services;
 
 import com.codeline.firstSpringDemo.Models.Course;
+import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
 import com.codeline.firstSpringDemo.Repositoris.CourseInterface;
 import com.codeline.firstSpringDemo.Repositoris.StudentInterface;
@@ -18,5 +19,9 @@ public class CourseService {
     public Course getCourseById(Integer id){
         return courseInterface.getCourseById(id);
 
+    }
+    public List<Course> getAllActiveCourse(){
+
+        return courseInterface.getAllActiveCourse();
     }
 }

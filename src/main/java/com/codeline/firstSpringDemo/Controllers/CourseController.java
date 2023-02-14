@@ -1,6 +1,7 @@
 package com.codeline.firstSpringDemo.Controllers;
 
 import com.codeline.firstSpringDemo.Models.Course;
+import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +26,10 @@ public class CourseController {
     public Course getCourseById(@RequestParam Integer courseId) {
         Course course = courseService.getCourseById(courseId);
         return course;
+    }
+    @RequestMapping(value = "getAllActiveCourse",method = RequestMethod.GET)
+    public List<Course> getAllActiveCourse(){
+        List<Course>  activeCourseList = courseService.getAllActiveCourse();
+        return activeCourseList;
     }
 }

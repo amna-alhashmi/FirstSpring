@@ -1,6 +1,7 @@
 package com.codeline.firstSpringDemo.Repositoris;
 
 import com.codeline.firstSpringDemo.Models.Course;
+import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -19,4 +20,6 @@ import java.util.List;
 
         @Query(value = "SELECT s FROM Course s WHERE s.id= :courseId")
         Course getCourseById(@Param("courseId")Integer id);
+        @Query(value = "SELECT s from Course s where s.isActive = true")
+        List<Course> getAllActiveCourse();
 }
