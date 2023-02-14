@@ -38,4 +38,9 @@ public class CourseController {
         List<Course>  activeCourseList = courseService.getAllActiveCourse();
         return activeCourseList;
     }
+    @RequestMapping(value = "getAllInActiveCourses",method = RequestMethod.GET)
+    public List<Course> getAllInActiveCourses(){
+        List<Course>  inActiveCoursesList = courseService.getAllInActiveCourses();
+        return inActiveCoursesList;
+    }
 }

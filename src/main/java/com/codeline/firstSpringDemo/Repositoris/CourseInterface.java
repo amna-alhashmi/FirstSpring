@@ -25,5 +25,6 @@ import java.util.List;
         @Query(value = "SELECT s from Course s where s.isActive = true")
         List<Course> getAllActiveCourse();
 
-
+        @Query(value = "SELECT s from Course s where s.isActive = false")
+        List<Course> getAllInActiveCourses();
     }

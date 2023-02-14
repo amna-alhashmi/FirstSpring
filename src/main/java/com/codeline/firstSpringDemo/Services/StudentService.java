@@ -41,6 +41,10 @@ public class StudentService {
 
         return studentInterface.getAllActiveStudents();
     }
+    public List<Student> getAllInActiveStudents(){
+
+        return studentInterface.getAllInActiveStudents();
+    }
 
 
 //    public List<Student> getStudentsBySchoolName(String schoolName){

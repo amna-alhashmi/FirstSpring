@@ -37,5 +37,10 @@ public class StudentController {
         List<Student>  activeStudentsList = studentService.getAllActiveStudents();
         return activeStudentsList;
     }
+    @RequestMapping(value = "getAllInActiveStudents",method = RequestMethod.GET)
+    public List<Student> getAllInActiveStudents(){
+        List<Student>  inActiveStudentList = studentService.getAllInActiveStudents();
+        return inActiveStudentList;
+    }
 
 }

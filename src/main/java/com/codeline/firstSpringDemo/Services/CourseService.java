@@ -29,4 +29,8 @@ public class CourseService {
 
         return courseInterface.getAllActiveCourse();
     }
+    public List<Course> getAllInActiveCourses(){
+
+        return courseInterface.getAllInActiveCourses();
+    }
 }

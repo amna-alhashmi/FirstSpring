@@ -38,7 +38,7 @@ public class SchoolController {
     }
     @RequestMapping(value = "getAllInActiveSchools",method = RequestMethod.GET)
     public List<School> getAllInActiveSchools(){
-        List<School>  activeSchoolsList = schoolService.getAllInActiveSchools();
-        return activeSchoolsList;
+        List<School>  inActiveSchoolsList = schoolService.getAllInActiveSchools();
+        return inActiveSchoolsList;
     }
 }
