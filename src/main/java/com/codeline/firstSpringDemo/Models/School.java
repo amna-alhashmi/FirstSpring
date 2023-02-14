@@ -2,8 +2,9 @@ package com.codeline.firstSpringDemo.Models;
 
 import javax.persistence.*;
 import java.util.List;
+
 @Entity
-public class School {
+public class School extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;

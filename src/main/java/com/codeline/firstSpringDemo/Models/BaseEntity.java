@@ -1,18 +1,23 @@
 package com.codeline.firstSpringDemo.Models;
 
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.MappedSuperclass;
 import java.util.Date;
-
+@MappedSuperclass
 public class BaseEntity {
-    Integer id;
+@CreatedDate
     Date createDate;
+@UpdateTimestamp
     Date updateDate;
-
-    public Integer getId() {
-        return id;
+    Boolean isActive;
+    public Boolean getActive() {
+        return isActive;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
     public Date getCreateDate() {
