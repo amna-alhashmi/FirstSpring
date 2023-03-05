@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 @RestController
 @RequestMapping(value = "student")
@@ -52,5 +53,10 @@ public class StudentController {
         Student student = studentService.getLatestUpdated();
         return student;
     }
+    @RequestMapping(value = "getStudentCreatedAfterDate", method = RequestMethod.GET)
+    public <List>Student getStudentCreatedAfterDate(@RequestParam String date) throws ParseException {
+        Student student =studentService.getStudentCreatedAfterDate(date);
+        return student;
 
+    }
 }

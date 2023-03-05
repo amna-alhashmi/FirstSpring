@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -55,7 +59,13 @@ public class StudentService {
         return student;
 
     }
+    public  <List>Student getStudentCreatedAfterDate(String date)throws ParseException {
+        DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date SDate= formatter.parse(date);
+        return studentInterface.getStudentCreatedAfterDate(SDate);
 
+
+    }
 
 //    public List<Student> getStudentsBySchoolName(String schoolName){
 //        School school = schoolInterface.getBySchoolName(schoolName);
