@@ -34,6 +34,8 @@ public interface SchoolInterface extends JpaRepository<School,Integer> {
 
     @Query(value ="SELECT s from School s where s.createDate = :date")
     <List>School getSchoolByCreatedDate(@Param("date") Date date);
+    @Query(value ="SELECT s from School s where s.updateDate = :date")
+    <List>School getSchoolByUpdatedDate(@Param("date") Date date);
 //    @Query(value ="delete FROM School s where s.id=:schoolId")
 //    School deleteSchoolById(Integer id);
 }

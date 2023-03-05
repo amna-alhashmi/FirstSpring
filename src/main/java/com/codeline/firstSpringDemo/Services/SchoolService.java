@@ -57,6 +57,14 @@ public class SchoolService {
         Date CreateDate= formatter.parse(date);
         return schoolInterface.getSchoolByCreatedDate(CreateDate);
 
+
+    }
+    public  <List>School getSchoolByUpdatedDate(String date)throws ParseException{
+        DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date UpdateDate= formatter.parse(date);
+        return schoolInterface.getSchoolByUpdatedDate(UpdateDate);
+
+
     }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();

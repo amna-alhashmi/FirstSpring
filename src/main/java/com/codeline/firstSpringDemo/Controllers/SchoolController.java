@@ -69,6 +69,12 @@ public class SchoolController {
         return school;
 
     }
+    @RequestMapping(value = "getSchoolByUpdatedDate", method = RequestMethod.GET)
+    public <List>School getSchoolByUpdatedDate(@RequestParam String date) throws ParseException {
+        School school =schoolService.getSchoolByUpdatedDate(date);
+        return school;
+
+    }
 
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){
