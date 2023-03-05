@@ -89,6 +89,11 @@ public class SchoolController {
         return school;
 
     }
+    @RequestMapping(value = "school/setDeleteBySchoolName", method = RequestMethod.GET)
+    public School setDeleteBySchoolName(@RequestParam String SchoolName) {
+        School school = schoolService.setDeleteBySchoolName(SchoolName);
+        return school;
+    }
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){
 //

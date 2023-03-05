@@ -83,6 +83,11 @@ public class SchoolService {
 
 
     }
+    public School setDeleteBySchoolName(String schoolName){
+        School school=schoolInterface.setDeleteBySchoolName(schoolName);
+        return school;
+
+    }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();
 //        schoolInterface.deleteSchoolById(schoolToDelete.getId());

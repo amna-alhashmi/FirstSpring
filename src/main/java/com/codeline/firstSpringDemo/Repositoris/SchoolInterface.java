@@ -43,7 +43,8 @@ public interface SchoolInterface extends JpaRepository<School,Integer> {
     @Query(value ="update School s set s.isActive=false where s.id >= :date")
     <List>School setDeleteAllSchoolsCreatedAfterDate(@Param("date") Date date);
 
-
+    @Query(value = "update School  s set s.isActive=false where s.name= :schoolName")
+    School setDeleteBySchoolName(@Param("schoolName") String schoolName);
 //    @Query(value ="delete FROM School s where s.id=:schoolId")
 //    School deleteSchoolById(Integer id);
 }
