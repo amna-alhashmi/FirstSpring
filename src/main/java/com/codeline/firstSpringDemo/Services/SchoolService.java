@@ -66,6 +66,11 @@ public class SchoolService {
 
 
     }
+        public void setDeleteById(Integer id) throws ParseException {
+        School school = schoolInterface.getSchoolById(id);
+        school.setActive(true);
+        schoolInterface.save(school);
+    }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();
 //        schoolInterface.deleteSchoolById(schoolToDelete.getId());

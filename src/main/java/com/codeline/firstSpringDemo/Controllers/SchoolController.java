@@ -75,6 +75,10 @@ public class SchoolController {
         return school;
 
     }
+        @RequestMapping(value = "setDeleteById",method = RequestMethod.POST)
+    public void setDeleteById(@RequestParam Integer id)throws ParseException {
+        schoolService.setDeleteById(id);
+  }
 
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){
