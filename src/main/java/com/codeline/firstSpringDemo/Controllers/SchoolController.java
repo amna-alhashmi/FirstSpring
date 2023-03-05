@@ -89,10 +89,22 @@ public class SchoolController {
         return school;
 
     }
-    @RequestMapping(value = "school/setDeleteBySchoolName", method = RequestMethod.GET)
+    @RequestMapping(value = "school/setDeleteBySchoolName", method = RequestMethod.POST)
     public School setDeleteBySchoolName(@RequestParam String SchoolName) {
         School school = schoolService.setDeleteBySchoolName(SchoolName);
         return school;
+    }
+    @RequestMapping(value = "setDeleteSchoolsByCreatedDate", method = RequestMethod.POST)
+    public <List>School setDeleteSchoolsByCreatedDate(@RequestParam String date) throws ParseException {
+        School school =schoolService.setDeleteSchoolsByCreatedDate(date);
+        return school;
+
+    }
+    @RequestMapping(value = "setDeleteSchoolsByUpdatedDate", method = RequestMethod.POST)
+    public <List>School setDeleteSchoolsByUpdatedDate(@RequestParam String date) throws ParseException {
+        School school =schoolService.setDeleteSchoolsByUpdatedDate(date);
+        return school;
+
     }
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){

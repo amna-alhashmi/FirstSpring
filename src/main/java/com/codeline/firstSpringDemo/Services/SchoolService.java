@@ -88,6 +88,20 @@ public class SchoolService {
         return school;
 
     }
+    public  <List>School setDeleteSchoolsByCreatedDate(String date)throws ParseException{
+        DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date CreateDate= formatter.parse(date);
+        return schoolInterface.setDeleteSchoolsByCreatedDate(CreateDate);
+
+
+    }
+    public  <List>School setDeleteSchoolsByUpdatedDate(String date)throws ParseException{
+        DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date UpDate= formatter.parse(date);
+        return schoolInterface.setDeleteSchoolsByUpdatedDate(UpDate);
+
+
+    }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();
 //        schoolInterface.deleteSchoolById(schoolToDelete.getId());
