@@ -45,12 +45,19 @@ public class SchoolService {
         return school;
 
     }
+    public  <List>School getSchoolCreatedAfterDate(String date)throws ParseException{
+        DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date SDate= formatter.parse(date);
+        return schoolInterface.getSchoolCreatedAfterDate(SDate);
+
+
+    }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();
 //        schoolInterface.deleteSchoolById(schoolToDelete.getId());
 //    }
 
-//    public void setCreatedDateByUserInput(String stringDate, Integer id) throws ParseException {
+//    public void getSchoolCreatedAfterDate(String Date) throws ParseException {
 //        DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
 //        Date javaDate= formatter.parse(stringDate);
 //        School school = schoolInterface.getSchoolById(id);

@@ -14,11 +14,13 @@ import java.util.List;
 public class SchoolController {
     @Autowired
     SchoolService schoolService;
+
     @RequestMapping(value = "school/getAll", method = RequestMethod.GET)
     public List<School> getAllSchools() {
         List<School> schools = schoolService.getAllSchools();
         return schools;
     }
+
     @RequestMapping(value = "school/getById", method = RequestMethod.GET)
     public School getSchoolById(@RequestParam Integer schoolId) {
         School school = schoolService.getSchoolById(schoolId);
@@ -30,26 +32,38 @@ public class SchoolController {
         School school = schoolService.getBySchoolName(SchoolName);
         return school;
     }
-    @RequestMapping(value = "getAllActiveSchools",method = RequestMethod.GET)
-    public List<School> getAllActiveSchools(){
-        List<School>  activeSchoolsList = schoolService.getAllActiveSchools();
+
+    @RequestMapping(value = "getAllActiveSchools", method = RequestMethod.GET)
+    public List<School> getAllActiveSchools() {
+        List<School> activeSchoolsList = schoolService.getAllActiveSchools();
         return activeSchoolsList;
     }
-    @RequestMapping(value = "getAllInActiveSchools",method = RequestMethod.GET)
-    public List<School> getAllInActiveSchools(){
-        List<School>  inActiveSchoolsList = schoolService.getAllInActiveSchools();
+
+    @RequestMapping(value = "getAllInActiveSchools", method = RequestMethod.GET)
+    public List<School> getAllInActiveSchools() {
+        List<School> inActiveSchoolsList = schoolService.getAllInActiveSchools();
         return inActiveSchoolsList;
     }
+
     @RequestMapping(value = "getLatestRow", method = RequestMethod.GET)
     public School getLatestRow() {
         School school = schoolService.getLatestRow();
         return school;
     }
+
     @RequestMapping(value = "getLatestUpdated", method = RequestMethod.GET)
     public School getLatestUpdated() {
         School school = schoolService.getLatestUpdated();
         return school;
     }
+
+    @RequestMapping(value = "getSchoolCreatedAfterDate", method = RequestMethod.GET)
+    public <List>School getSchoolCreatedAfterDate(@RequestParam String date) throws ParseException {
+        School school =schoolService.getSchoolCreatedAfterDate(date);
+        return school;
+
+    }
+
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){
 //

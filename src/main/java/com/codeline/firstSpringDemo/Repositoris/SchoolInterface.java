@@ -8,6 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -28,6 +29,9 @@ public interface SchoolInterface extends JpaRepository<School,Integer> {
     School getLatestRow();
     @Query(value ="SELECT s from School s where s.updateDate =(SELECT max(s.updateDate) from School s)")
     School getLatestUpdated();
+    @Query(value ="SELECT s from School s where s.createDate >= :date")
+    <List>School getSchoolCreatedAfterDate(@Param("date") Date date);
+
 
 //    @Query(value ="delete FROM School s where s.id=:schoolId")
 //    School deleteSchoolById(Integer id);
