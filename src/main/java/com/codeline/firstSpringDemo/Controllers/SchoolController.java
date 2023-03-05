@@ -63,6 +63,12 @@ public class SchoolController {
         return school;
 
     }
+    @RequestMapping(value = "getSchoolByCreatedDate", method = RequestMethod.GET)
+    public <List>School getSchoolByCreatedDate(@RequestParam String date) throws ParseException {
+        School school =schoolService.getSchoolByCreatedDate(date);
+        return school;
+
+    }
 
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){
