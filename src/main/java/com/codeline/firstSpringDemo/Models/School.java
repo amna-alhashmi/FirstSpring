@@ -8,8 +8,13 @@ public class School extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
+
     @Column(name = "school_name")
     String name;
+
+
+
 
     public Integer getId() {
         return id;
@@ -19,6 +24,7 @@ public class School extends BaseEntity{
         this.id = id;
     }
 
+
     public String getName() {
         return name;
     }
@@ -26,5 +32,4 @@ public class School extends BaseEntity{
     public void setName(String name) {
         this.name = name;
     }
-
 }

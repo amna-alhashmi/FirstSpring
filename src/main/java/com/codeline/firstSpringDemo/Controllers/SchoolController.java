@@ -1,13 +1,12 @@
 package com.codeline.firstSpringDemo.Controllers;
 
 import com.codeline.firstSpringDemo.Models.School;
+import com.codeline.firstSpringDemo.RequestObject.SchoolRequestForCreateDateUpdate;
 import com.codeline.firstSpringDemo.Services.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -26,9 +25,9 @@ public class SchoolController {
         return school;
     }
 
-    @RequestMapping(value = "school/getByName", method = RequestMethod.GET)
-    public School getSchoolName(@RequestParam String SchoolName) {
-        School school = schoolService.getSchoolName(SchoolName);
+    @RequestMapping(value = "school/getBySchoolName", method = RequestMethod.GET)
+    public School getBySchoolName(@RequestParam String SchoolName) {
+        School school = schoolService.getBySchoolName(SchoolName);
         return school;
     }
     @RequestMapping(value = "getAllActiveSchools",method = RequestMethod.GET)
@@ -46,4 +45,19 @@ public class SchoolController {
         School school = schoolService.getLatestRow();
         return school;
     }
+    @RequestMapping(value = "getLatestUpdated", method = RequestMethod.GET)
+    public School getLatestUpdated() {
+        School school = schoolService.getLatestUpdated();
+        return school;
+    }
+//    @GetMapping(value = "deleteSchoolById")
+//    public String deleteSchoolById(@RequestParam Integer id){
+//
+//        schoolService.deleteSchoolById(id);
+//        return "Record Deleted Successfully :)";
+//    }
+//    @RequestMapping(value = "updateCreateDateByUserInput")
+//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+//        schoolService.setCreatedDateByUserInput(data.getDate(),data.getId());
+//    }
 }
