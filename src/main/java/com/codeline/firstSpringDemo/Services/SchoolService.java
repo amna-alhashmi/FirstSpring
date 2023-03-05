@@ -76,6 +76,13 @@ public class SchoolService {
         school.setActive(true);
         schoolInterface.save(school);
     }
+    public  <List>School setDeleteAllSchoolsCreatedAfterDate(String date)throws ParseException{
+        DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+        Date SDate= formatter.parse(date);
+        return schoolInterface.setDeleteAllSchoolsCreatedAfterDate(SDate);
+
+
+    }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();
 //        schoolInterface.deleteSchoolById(schoolToDelete.getId());

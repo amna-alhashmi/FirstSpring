@@ -83,7 +83,12 @@ public class SchoolController {
     public void setDeleteAll() {
         schoolService.setDeleteAll();
     }
+    @RequestMapping(value = "setDeleteAllSchoolsCreatedAfterDate", method = RequestMethod.POST)
+    public <List>School setDeleteAllSchoolsCreatedAfterDate(@RequestParam String date) throws ParseException {
+        School school =schoolService.setDeleteAllSchoolsCreatedAfterDate(date);
+        return school;
 
+    }
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){
 //
