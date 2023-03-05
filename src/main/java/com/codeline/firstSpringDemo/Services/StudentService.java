@@ -50,6 +50,11 @@ public class StudentService {
         return student;
 
     }
+    public Student getLatestUpdated(){
+        Student student=studentInterface.getLatestUpdated();
+        return student;
+
+    }
 
 
 //    public List<Student> getStudentsBySchoolName(String schoolName){
