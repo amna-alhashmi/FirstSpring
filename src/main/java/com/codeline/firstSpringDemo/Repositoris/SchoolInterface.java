@@ -2,6 +2,7 @@ package com.codeline.firstSpringDemo.Repositoris;
 
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -36,6 +37,10 @@ public interface SchoolInterface extends JpaRepository<School,Integer> {
     <List>School getSchoolByCreatedDate(@Param("date") Date date);
     @Query(value ="SELECT s from School s where s.updateDate = :date")
     <List>School getSchoolByUpdatedDate(@Param("date") Date date);
+//    @Query(Value="select st from Student st where st.school.id=:id")
+//    List<Student>getSchoolByNumberOfStudents(@Param("id")Integer id);
+//    @Query(value = "select DISTINCT school_id from student ",nativeQuery = true)
+//    List<School>
     @Query(value="update School s set s.isActive=false where s.id=:id")
     School setDeleteById(@Param("id")Integer id);
     @Query(value="update School s set s.isActive=false")

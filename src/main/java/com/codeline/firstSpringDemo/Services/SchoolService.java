@@ -2,6 +2,7 @@ package com.codeline.firstSpringDemo.Services;
 
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Repositoris.SchoolInterface;
+import com.codeline.firstSpringDemo.Repositoris.StudentInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,6 +67,10 @@ public class SchoolService {
 
 
     }
+//    public List<School>getSchoolByNumberOfStudents(Integer numberOfStudent){
+//        List<Integer>typedOfSchool= StudentInterface.getSchoolByNumberOfStudents();
+//
+//    }
         public void setDeleteById(Integer id) throws ParseException {
         School school = schoolInterface.setDeleteById(id);
         school.setActive(true);
