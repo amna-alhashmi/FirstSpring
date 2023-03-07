@@ -34,7 +34,7 @@ public interface StudentInterface extends CrudRepository <Student,Integer> {
     @Query(value = "SELECT s From Student s WHERE s.rollNumber = :rollNumber")
     Student getByStudentByRollNumber(@Param("rollNumber") String rollNumber);
 
-    @Query(value = "SELECT s From Student s WHERE s.School.id = :id")
+    @Query(value = "SELECT s From Student s WHERE s.id = :id")
     Student getStudentsBySchoolId(@Param("id") Integer id);
 
     @Query(value ="SELECT s from Student s where s.createDate = :date")
@@ -54,7 +54,7 @@ public interface StudentInterface extends CrudRepository <Student,Integer> {
     @Query(value = "update Student  s set s.isActive=false where s.rollNumber= :rollNumber")
     Student setDeleteByStudentByRollNumber(@Param("rollNumber") String rollNumber);
 
-    @Query(value = "update Student  s set s.isActive=false where s.School.id= :id")
+    @Query(value = "update Student  s set s.isActive=false where s.id= :id")
     Student setDeleteStudentsBySchoolId(@Param("id") Integer id);
 
     @Query(value ="update Student s set s.isActive=false where s.createDate = :date")

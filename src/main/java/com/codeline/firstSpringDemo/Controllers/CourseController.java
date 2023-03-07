@@ -27,9 +27,9 @@ public class CourseController {
         List<Course> courses = courseService.getAllCourse();
         return courses;
     }
-    @RequestMapping(value = "getAllActiveCourse",method = RequestMethod.GET)
-    public List<Course> getAllActiveCourse(){
-        List<Course>  activeCourseList = courseService.getAllActiveCourse();
+    @RequestMapping(value = "getAllActive",method = RequestMethod.GET)
+    public List<Course> getAllActive(){
+        List<Course>  activeCourseList = courseService.getAllActive();
         return activeCourseList;
     }
     @RequestMapping(value = "getAllInActiveCourses",method = RequestMethod.GET)
@@ -68,9 +68,17 @@ public class CourseController {
         return course;
     }
 
+    @RequestMapping(value = "getCourseByStudentId", method = RequestMethod.GET)
+    public <List>Course getCourseByStudentId(@RequestParam Integer id) throws ParseException {
+        Course course=courseService.getCourseByStudentId(id);
+        return course;
+    }
 
-
-
+@RequestMapping(value = "getAllActiveCoursesForAStudent",method = RequestMethod.GET)
+public Course getAllActiveCoursesForAStudent(@RequestParam String studentName)throws ParseException{
+      Course course=courseService.getAllActiveCoursesForAStudent(studentName) ;
+      return course;
+}
 
 
 

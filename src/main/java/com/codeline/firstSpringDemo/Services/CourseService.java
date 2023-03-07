@@ -23,8 +23,8 @@ public class CourseService {
     public List<Course> getAllCourse(){
         return courseInterface.getAllCourse();
     }
-    public List<Course> getAllActiveCourse(){
-        return courseInterface.getAllActiveCourse();
+    public List<Course> getAllActive(){
+        return courseInterface.getAllActive();
     }
     public List<Course> getAllInActiveCourses(){
         return courseInterface.getAllInActiveCourses();
@@ -57,9 +57,15 @@ public class CourseService {
         return courseInterface.getCourseByUpdatedDate(UpdateDate);
     }
 
+    public<List> Course getCourseByStudentId(Integer id)throws ParseException{
+        return courseInterface.getCourseByStudentId(id);
 
+    }
 
-
+    public Course getAllActiveCoursesForAStudent(String studentName){
+        Course course=courseInterface.getAllActiveCoursesForAStudent (studentName);
+        return course;
+    }
 
 
 
