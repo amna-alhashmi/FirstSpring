@@ -30,9 +30,11 @@ import java.util.List;
         @Query(value ="SELECT s from Mark s where s.createDate >= :date")
         <List>Mark getMarkCreatedAfterDate(@Param("date") Date date);
 
+        @Query(value = "SELECT s FROM Mark s WHERE s.grade= :grade")
+        Mark getAllByGrade(@Param("grade") String grade);
 
-
-
+        @Query(value = "SELECT s FROM Mark s WHERE s.obtainedMarks> :obtainedMarks")
+        Mark getByObtainedMarksMoreThan(@Param("obtainedMarks") Integer obtainedMarks);
 
 
 

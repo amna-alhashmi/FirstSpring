@@ -1,7 +1,9 @@
 package com.codeline.firstSpringDemo.Services;
 
+import com.codeline.firstSpringDemo.Models.Course;
 import com.codeline.firstSpringDemo.Models.Mark;
 import com.codeline.firstSpringDemo.Models.School;
+import com.codeline.firstSpringDemo.Models.Student;
 import com.codeline.firstSpringDemo.Repositoris.MarkInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,18 +38,23 @@ import java.util.List;
             return mark;
         }
         public Mark getLatestUpdated(){
-            Mark school=markInterface.getLatestUpdated();
-            return school;
+            Mark mark=markInterface.getLatestUpdated();
+            return mark;
         }
         public  <List>Mark getMarkCreatedAfterDate(String date)throws ParseException {
             DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
             Date SDate= formatter.parse(date);
             return markInterface.getMarkCreatedAfterDate(SDate);
         }
+        public Mark getAllByGrade(String grade){
+            Mark mark=markInterface.getAllByGrade(grade);
+            return mark;
 
+        }
 
-
-
+        public <List>Mark getByObtainedMarksMoreThan(Integer obtainedMarks)throws ParseException{
+            return markInterface.getByObtainedMarksMoreThan(obtainedMarks);
+        }
 
 
 

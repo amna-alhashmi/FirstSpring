@@ -53,8 +53,17 @@ public class MarkController {
         return mark;
     }
 
+    @RequestMapping(value = "getAllByGrade", method = RequestMethod.GET)
+    public Mark getAllByGrade(@RequestParam String grade) {
+        Mark mark = markService.getAllByGrade(grade);
+        return mark;
+    }
 
-
+    @RequestMapping(value = "getByObtainedMarksMoreThan", method = RequestMethod.GET)
+    public <List>Mark getByObtainedMarksMoreThan(@RequestParam Integer obtainedMarks) throws ParseException {
+        Mark mark =markService.getByObtainedMarksMoreThan(obtainedMarks);
+        return mark;
+    }
 
 
 
