@@ -36,7 +36,8 @@ import java.util.List;
         @Query(value = "SELECT s FROM Mark s WHERE s.obtainedMarks> :obtainedMarks")
         Mark getByObtainedMarksMoreThan(@Param("obtainedMarks") Integer obtainedMarks);
 
-
+        @Query(value = "SELECT s FROM Mark s WHERE s.obtainedMarks< :obtainedMarks")
+        Mark getByObtainedMarksLessThan(@Param("obtainedMarks") Integer obtainedMarks);
 
 
 
@@ -56,7 +57,8 @@ import java.util.List;
         @Query(value ="update Mark s set s.isActive=false where s.id >= :date")
         <List>Mark setDeleteAllMarkCreatedAfterDate(@Param("date") Date date);
 
-
+        @Query(value = "SELECT s From Mark s WHERE s.id = :id")
+        Mark setDeleteMarksByCourseId(@Param("id") Integer id);
 
 
 //        @Query(value = "update Mark  s set s.isActive=false where s.name= :schoolName")

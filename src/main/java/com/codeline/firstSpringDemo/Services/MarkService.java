@@ -56,7 +56,9 @@ import java.util.List;
             return markInterface.getByObtainedMarksMoreThan(obtainedMarks);
         }
 
-
+        public <List>Mark getByObtainedMarksLessThan(Integer obtainedMarks)throws ParseException{
+            return markInterface.getByObtainedMarksLessThan(obtainedMarks);
+        }
 
 
 
@@ -94,14 +96,10 @@ import java.util.List;
             Date SDate= formatter.parse(date);
             return markInterface.setDeleteAllMarkCreatedAfterDate(SDate);
         }
+        public<List> Mark setDeleteMarksByCourseId(Integer id)throws ParseException{
+            return markInterface.setDeleteMarksByCourseId(id);
 
-
-
-
-
-
-
-
+        }
 //        public Mark setDeleteByMarkName(String schoolName){
 //            Mark mark=markInterface.setDeleteByMarkName(schoolName);
 //            return mark;
@@ -117,4 +115,5 @@ import java.util.List;
             Date UpDate= formatter.parse(date);
             return markInterface.setDeleteMarkByUpdatedDate(UpDate);
         }
-}
+
+    }

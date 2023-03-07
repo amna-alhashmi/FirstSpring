@@ -65,26 +65,17 @@ public class MarkController {
         return mark;
     }
 
-
-
-
-
-
-
-
+    @RequestMapping(value = "getByObtainedMarksLessThan", method = RequestMethod.GET)
+    public <List>Mark getByObtainedMarksLessThan(@RequestParam Integer obtainedMarks) throws ParseException {
+        Mark mark =markService.getByObtainedMarksLessThan(obtainedMarks);
+        return mark;
+    }
 
     @RequestMapping(value = "getMarkByUpdatedDate", method = RequestMethod.GET)
     public <List>Mark getMarkByUpdatedDate(@RequestParam String date) throws ParseException {
         Mark mark =markService.getMarkByUpdatedDate(date);
         return mark;
     }
-
-
-
-
-
-
-
 
 //    @RequestMapping(value = "getMarkByCreatedDate", method = RequestMethod.GET)
 //    public <List>Mark getMarkByCreatedDate(@RequestParam String date) throws ParseException {
@@ -108,14 +99,15 @@ public class MarkController {
 
     }
 
+    @RequestMapping(value = "setDeleteMarksByCourseId", method = RequestMethod.GET)
+    public <List>Mark setDeleteMarksByCourseId(@RequestParam Integer id) throws ParseException {
+        Mark mark=markService.setDeleteMarksByCourseId(id);
+        return mark;
 
+    }
 
-
-
-
-
-//    @RequestMapping(value = "school/setDeleteByMarkName", method = RequestMethod.POST)
-//    public Mark setDeleteByMarkName(@RequestParam String SchoolName) {
+//    @RequestMapping(value = "setDeleteMarksByCourseId", method = RequestMethod.POST)
+//    public Mark setDeleteMarksByCourseId(@RequestParam String SchoolName) {
 //        Mark mark = markService.setDeleteByMarkName(SchoolName);
 //        return mark;
 //    }
