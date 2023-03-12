@@ -126,8 +126,8 @@ public class MarkController {
         markService.createMark();
         return "Mark add successful";
     }
-//    @RequestMapping(value = "updateCreateDateByUserInput",method = RequestMethod.POST)
-//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
-//        markService.setCreatedDateByUserInput(data.getDate(),data.getId());
-//    }
+    @RequestMapping(value = "updateMark",method = RequestMethod.POST)
+    public void updateMark(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+        markService.updateMark(data.getDate(),data.getId());
+    }
 }

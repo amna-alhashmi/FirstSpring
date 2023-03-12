@@ -125,8 +125,8 @@ public List<School> getSchoolByNumberOfStudents(@RequestParam Integer numberOfSt
 //        schoolService.deleteSchoolById(id);
 //        return "Record Deleted Successfully :)";
 //    }
-//    @RequestMapping(value = "updateCreateDateByUserInput")
-//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
-//        schoolService.setCreatedDateByUserInput(data.getDate(),data.getId());
-//    }
+    @RequestMapping(value = "updateSchool")
+    public void updateSchool(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+        schoolService.updateSchool(data.getDate(),data.getId());
+    }
 }

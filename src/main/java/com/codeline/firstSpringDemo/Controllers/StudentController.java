@@ -127,8 +127,8 @@ public <List>Student setDeleteByStudentByRollNumber(@RequestParam String rollNum
         studentService.createStudent();
         return "Student add successful";
     }
-//    @RequestMapping(value = "updateCreateDateByUserInput",method = RequestMethod.POST)
-//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
-//        studentService.setCreatedDateByUserInput(data.getDate(),data.getId());
-//    }
+    @RequestMapping(value = "updateStudent",method = RequestMethod.POST)
+    public void updateStudent(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+        studentService.updateStudent(data.getDate(),data.getId());
+    }
 }

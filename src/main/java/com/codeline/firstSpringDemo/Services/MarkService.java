@@ -120,4 +120,15 @@ import java.util.List;
             mark.setObtainedMarks(123);
             markInterface.save(mark);
         }
+        public void updateMark(String date, Integer id) throws ParseException {
+
+            DateFormat formatter = new SimpleDateFormat("yyy-MM-dd");
+            Date javaDate = formatter.parse(date);
+            Mark mark = markInterface.getMarkById(id);
+            mark.setCreateDate(javaDate);
+            mark.setObtainedMarks(123);
+            mark.setGrade("A");
+            markInterface.save(mark);
+
+        }
     }

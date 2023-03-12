@@ -113,6 +113,16 @@ public class SchoolService {
         school.setName("ABC School");
         schoolInterface.save(school);
     }
+    public void updateSchool(String date, Integer id) throws ParseException {
+
+        DateFormat formatter = new SimpleDateFormat("yyy-MM-dd");
+        Date javaDate = formatter.parse(date);
+        School school = schoolInterface.getSchoolById(id);
+        school.setCreateDate(javaDate);
+        school.setName("ABC School");
+        schoolInterface.save(school);
+
+    }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();
 //        schoolInterface.deleteSchoolById(schoolToDelete.getId());

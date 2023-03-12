@@ -105,6 +105,16 @@ public class CourseService {
         course.setName("Arabic");
         courseInterface.save(course);
     }
+    public void updateCourse(String date, Integer id) throws ParseException {
+
+        DateFormat formatter = new SimpleDateFormat("yyy-MM-dd");
+        Date javaDate = formatter.parse(date);
+        Course course = courseInterface.getCourseById(id);
+        course.setCreateDate(javaDate);
+        course.setName("Arabic");
+        courseInterface.save(course);
+
+    }
 //    public void updateCourse(Integer id, String name, Integer Student_id, Boolean isActive) {
 //        Course course = courseInterface.getCourseById(id);
 //        course.setName(name);

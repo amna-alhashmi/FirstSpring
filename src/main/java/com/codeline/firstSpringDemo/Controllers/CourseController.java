@@ -111,8 +111,8 @@ public Course getAllActiveCoursesForAStudent(@RequestParam String studentName)th
         courseService.createCourse();
         return "Course add successful";
     }
-//    @RequestMapping(value = "updateCreateDateByUserInput",method = RequestMethod.POST)
-//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
-//        courseService.setCreatedDateByUserInput(data.getDate(),data.getId());
-//    }
+    @RequestMapping(value = "updateCourse",method = RequestMethod.POST)
+    public void updateCourse(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+        courseService.updateCourse(data.getDate(),data.getId());
+    }
 }

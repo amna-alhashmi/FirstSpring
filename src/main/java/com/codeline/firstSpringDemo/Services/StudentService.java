@@ -139,6 +139,18 @@ public <List>Student setDeleteByStudentByRollNumber(String rollNumber)throws Par
         student.setRollNumber("123");
         studentInterface.save(student);
     }
+    public void updateStudent(String date, Integer id) throws ParseException {
+
+        DateFormat formatter = new SimpleDateFormat("yyy-MM-dd");
+        Date javaDate = formatter.parse(date);
+        Student student = studentInterface.getStudentById(id);
+        student.setCreateDate(javaDate);
+        student.setFirstName("Amna");
+        student.setLastName("Alhashmi");
+        student.setRollNumber("123");
+        studentInterface.save(student);
+
+    }
 //    public List<Student> getStudentsBySchoolName(String schoolName){
 //        School school = schoolInterface.getBySchoolName(schoolName);
 //        Integer schoolId = school.getId();
