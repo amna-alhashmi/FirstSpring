@@ -1,5 +1,6 @@
 package com.codeline.firstSpringDemo.Services;
 
+import com.codeline.firstSpringDemo.Models.Mark;
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Repositoris.SchoolInterface;
 import com.codeline.firstSpringDemo.Repositoris.StudentInterface;
@@ -106,6 +107,11 @@ public class SchoolService {
         return schoolInterface.setDeleteSchoolsByUpdatedDate(UpDate);
 
 
+    }
+    public void createSchool() {
+        School school = new School();
+        school.setName("ABC School");
+        schoolInterface.save(school);
     }
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();

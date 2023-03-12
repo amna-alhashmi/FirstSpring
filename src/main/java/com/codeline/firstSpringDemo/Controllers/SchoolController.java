@@ -110,6 +110,15 @@ public List<School> getSchoolByNumberOfStudents(@RequestParam Integer numberOfSt
         return school;
 
     }
+    @RequestMapping(value = "createSchool", method = RequestMethod.POST)
+    public String createSchool() {
+        schoolService.createSchool();
+        return "School add successful";
+    }
+//        @RequestMapping(value = "updateCreateDateByUserInput",method = RequestMethod.POST)
+//        public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+//        schoolService.setCreatedDateByUserInput(data.getDate(),data.getId());
+//    }
 //    @GetMapping(value = "deleteSchoolById")
 //    public String deleteSchoolById(@RequestParam Integer id){
 //

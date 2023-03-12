@@ -115,5 +115,9 @@ import java.util.List;
             Date UpDate= formatter.parse(date);
             return markInterface.setDeleteMarkByUpdatedDate(UpDate);
         }
-
+        public void createMark() {
+            Mark mark = new Mark();
+            mark.setObtainedMarks(123);
+            markInterface.save(mark);
+        }
     }

@@ -3,12 +3,10 @@ package com.codeline.firstSpringDemo.Controllers;
 import com.codeline.firstSpringDemo.Models.Mark;
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
+import com.codeline.firstSpringDemo.RequestObject.SchoolRequestForCreateDateUpdate;
 import com.codeline.firstSpringDemo.Services.MarkService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
@@ -123,4 +121,13 @@ public class MarkController {
         return mark;
 
     }
+    @RequestMapping(value = "createMark", method = RequestMethod.POST)
+    public String createMark() {
+        markService.createMark();
+        return "Mark add successful";
+    }
+//    @RequestMapping(value = "updateCreateDateByUserInput",method = RequestMethod.POST)
+//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+//        markService.setCreatedDateByUserInput(data.getDate(),data.getId());
+//    }
 }

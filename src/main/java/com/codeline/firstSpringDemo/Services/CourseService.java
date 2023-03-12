@@ -68,16 +68,6 @@ public class CourseService {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     public void setDeleteById(Integer id) throws ParseException {
         Course course = courseInterface.setDeleteById(id);
         course.setActive(true);
@@ -110,4 +100,16 @@ public class CourseService {
 
 
     }
+    public void createCourse() {
+        Course course = new Course();
+        course.setName("Arabic");
+        courseInterface.save(course);
+    }
+//    public void updateCourse(Integer id, String name, Integer Student_id, Boolean isActive) {
+//        Course course = courseInterface.getCourseById(id);
+//        course.setName(name);
+//
+//        course.setStudent(StudentService.getStudentById(Student_id));
+//        courseInterface.save(course);
+//    }
 }

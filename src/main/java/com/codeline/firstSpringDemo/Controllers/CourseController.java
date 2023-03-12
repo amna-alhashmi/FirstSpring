@@ -3,12 +3,10 @@ package com.codeline.firstSpringDemo.Controllers;
 import com.codeline.firstSpringDemo.Models.Course;
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
+import com.codeline.firstSpringDemo.RequestObject.SchoolRequestForCreateDateUpdate;
 import com.codeline.firstSpringDemo.Services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
@@ -79,15 +77,6 @@ public Course getAllActiveCoursesForAStudent(@RequestParam String studentName)th
       Course course=courseService.getAllActiveCoursesForAStudent(studentName) ;
       return course;
 }
-
-
-
-
-
-
-
-
-
     @RequestMapping(value = "setDeleteById",method = RequestMethod.POST)
     public void setDeleteById(@RequestParam Integer id)throws ParseException {
         courseService.setDeleteById(id);
@@ -117,5 +106,13 @@ public Course getAllActiveCoursesForAStudent(@RequestParam String studentName)th
         return course;
     }
 
-
+    @RequestMapping(value = "createCourse", method = RequestMethod.POST)
+    public String createCourse() {
+        courseService.createCourse();
+        return "Course add successful";
+    }
+//    @RequestMapping(value = "updateCreateDateByUserInput",method = RequestMethod.POST)
+//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+//        courseService.setCreatedDateByUserInput(data.getDate(),data.getId());
+//    }
 }

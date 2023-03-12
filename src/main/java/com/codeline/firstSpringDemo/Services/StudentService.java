@@ -132,6 +132,13 @@ public <List>Student setDeleteByStudentByRollNumber(String rollNumber)throws Par
 
 
     }
+    public void createStudent() {
+        Student student = new Student();
+        student.setFirstName("Amna");
+        student.setLastName("AlHashmei");
+        student.setRollNumber("123");
+        studentInterface.save(student);
+    }
 //    public List<Student> getStudentsBySchoolName(String schoolName){
 //        School school = schoolInterface.getBySchoolName(schoolName);
 //        Integer schoolId = school.getId();

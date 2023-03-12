@@ -1,13 +1,12 @@
 package com.codeline.firstSpringDemo.Controllers;
 
+import com.codeline.firstSpringDemo.Models.Course;
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
+import com.codeline.firstSpringDemo.RequestObject.SchoolRequestForCreateDateUpdate;
 import com.codeline.firstSpringDemo.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.List;
@@ -123,4 +122,13 @@ public <List>Student setDeleteByStudentByRollNumber(@RequestParam String rollNum
         return student;
 
     }
+    @RequestMapping(value = "createStudent", method = RequestMethod.POST)
+    public String createStudent() {
+        studentService.createStudent();
+        return "Student add successful";
+    }
+//    @RequestMapping(value = "updateCreateDateByUserInput",method = RequestMethod.POST)
+//    public void setCreatedDateByUserInput(@RequestBody SchoolRequestForCreateDateUpdate data)throws ParseException {
+//        studentService.setCreatedDateByUserInput(data.getDate(),data.getId());
+//    }
 }
