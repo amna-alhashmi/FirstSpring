@@ -5,6 +5,7 @@ import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
 import com.codeline.firstSpringDemo.RequestObject.SchoolRequestForCreateDateUpdate;
 import com.codeline.firstSpringDemo.Services.CourseService;
+import com.codeline.firstSpringDemo.Slack.SlackClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,68 +16,89 @@ import java.util.List;
 public class CourseController {
     @Autowired
     CourseService courseService;
+    @Autowired
+    SlackClient slackClient;
     @RequestMapping(value = "course/getById", method = RequestMethod.GET)
     public Course getCourseById(@RequestParam Integer courseId) {
         Course course = courseService.getCourseById(courseId);
+        slackClient.sendMessage(courseService.formatCourseObjectForSlack(course).toString());
         return course;
     }
     @RequestMapping(value = "course/getAll", method = RequestMethod.GET)
     public List<Course> getAllCourses() {
         List<Course> courses = courseService.getAllCourse();
+        slackClient.sendMessage(courseService.formatCourseListForSlack(courses).toString());
         return courses;
     }
     @RequestMapping(value = "getAllActive",method = RequestMethod.GET)
     public List<Course> getAllActive(){
         List<Course>  activeCourseList = courseService.getAllActive();
+        slackClient.sendMessage(courseService.formatCourseListForSlack(activeCourseList).toString());
+
         return activeCourseList;
     }
     @RequestMapping(value = "getAllInActiveCourses",method = RequestMethod.GET)
     public List<Course> getAllInActiveCourses(){
         List<Course>  inActiveCoursesList = courseService.getAllInActiveCourses();
+        slackClient.sendMessage(courseService.formatCourseListForSlack(inActiveCoursesList).toString());
+
         return inActiveCoursesList;
     }
     @RequestMapping(value = "getLatestRow", method = RequestMethod.GET)
     public Course getLatestRow() {
         Course course = courseService.getLatestRow();
+        slackClient.sendMessage(courseService.formatCourseObjectForSlack(course).toString());
         return course;
     }
     @RequestMapping(value = "getLatestUpdated", method = RequestMethod.GET)
     public Course getLatestUpdated() {
         Course course = courseService.getLatestUpdated();
+        slackClient.sendMessage(courseService.formatCourseObjectForSlack(course).toString());
         return course;
     }
     @RequestMapping(value = "getCourseCreatedAfterDate", method = RequestMethod.GET)
-    public <List>Course getCourseCreatedAfterDate(@RequestParam String date) throws ParseException {
-        Course course =courseService.getCourseCreatedAfterDate(date);
+    public List<Course> getCourseCreatedAfterDate(@RequestParam String date) throws ParseException {
+        List<Course> course =courseService.getCourseCreatedAfterDate(date);
+        slackClient.sendMessage(courseService.formatCourseListForSlack(course).toString());
+
         return course;
     }
     @RequestMapping(value = "course/getByName", method = RequestMethod.GET)
     public Course getCourseName(@RequestParam String CourseName) {
         Course course = courseService.getCourseName(CourseName);
+        slackClient.sendMessage(courseService.formatCourseObjectForSlack(course).toString());
         return course;
     }
     @RequestMapping(value = "getCourseByCreatedDate", method = RequestMethod.GET)
-    public <List>Course getCourseByCreatedDate(@RequestParam String date) throws ParseException {
-        Course course =courseService.getCourseByCreatedDate(date);
+    public List<Course> getCourseByCreatedDate(@RequestParam String date) throws ParseException {
+        List<Course> course =courseService.getCourseByCreatedDate(date);
+        slackClient.sendMessage(courseService.formatCourseListForSlack(course).toString());
+
         return course;
     }
     @RequestMapping(value = "getCourseByUpdatedDate", method = RequestMethod.GET)
-    public <List>Course getCourseByUpdatedDate(@RequestParam String date) throws ParseException {
-        Course course =courseService.getCourseByUpdatedDate(date);
+    public List<Course> getCourseByUpdatedDate(@RequestParam String date) throws ParseException {
+        List<Course> course =courseService.getCourseByUpdatedDate(date);
+        slackClient.sendMessage(courseService.formatCourseListForSlack(course).toString());
         return course;
     }
 
     @RequestMapping(value = "getCourseByStudentId", method = RequestMethod.GET)
-    public <List>Course getCourseByStudentId(@RequestParam Integer id) throws ParseException {
-        Course course=courseService.getCourseByStudentId(id);
+    public List<Course> getCourseByStudentId(@RequestParam Integer id) throws ParseException {
+        List<Course> course=courseService.getCourseByStudentId(id);
+        slackClient.sendMessage(courseService.formatCourseListForSlack(course).toString());
         return course;
     }
 
 @RequestMapping(value = "getAllActiveCoursesForAStudent",method = RequestMethod.GET)
 public Course getAllActiveCoursesForAStudent(@RequestParam String studentName)throws ParseException{
       Course course=courseService.getAllActiveCoursesForAStudent(studentName) ;
+    slackClient.sendMessage(courseService.formatCourseObjectForSlack(course).toString());
       return course;
 }
+
+
+
     @RequestMapping(value = "setDeleteById",method = RequestMethod.POST)
     public void setDeleteById(@RequestParam Integer id)throws ParseException {
         courseService.setDeleteById(id);

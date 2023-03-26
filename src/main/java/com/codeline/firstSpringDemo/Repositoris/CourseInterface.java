@@ -28,16 +28,16 @@ import java.util.List;
         @Query(value ="SELECT s from Course s where s.updateDate =(SELECT max(s.updateDate) from Course s)")
         Course getLatestUpdated();
         @Query(value ="SELECT s from Course s where s.createDate >= :date")
-        <List>Course getCourseCreatedAfterDate(@Param("date") Date date);
+        List<Course> getCourseCreatedAfterDate(@Param("date") Date date);
         @Query(value = "SELECT s FROM Course s WHERE s.name= :courseName")
         Course getCourseName(@Param("courseName") String courseName);
         @Query(value ="SELECT s from Course s where s.createDate = :date")
-        <List>Course getCourseByCreatedDate(@Param("date") Date date);
+        List<Course> getCourseByCreatedDate(@Param("date") Date date);
         @Query(value ="SELECT s from Course s where s.updateDate = :date")
-        <List>Course getCourseByUpdatedDate(@Param("date") Date date);
+        List<Course> getCourseByUpdatedDate(@Param("date") Date date);
 
         @Query(value = "SELECT s From Course s WHERE s.id = :id")
-        Course getCourseByStudentId(@Param("id") Integer id);
+        List<Course> getCourseByStudentId(@Param("id") Integer id);
 @Query(value="select s from Course s where s.isActive=true AND s.name= :studentName")
 Course getAllActiveCoursesForAStudent(@Param("studentName")String studentName );
 

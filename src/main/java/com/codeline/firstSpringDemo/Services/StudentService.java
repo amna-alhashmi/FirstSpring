@@ -54,7 +54,7 @@ public class StudentService {
     }
 
 
-    public  <List>Student getStudentCreatedAfterDate(String date)throws ParseException {
+    public  List<Student> getStudentCreatedAfterDate(String date)throws ParseException {
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date SDate= formatter.parse(date);
         return studentInterface.getStudentCreatedAfterDate(SDate);
@@ -64,24 +64,24 @@ public class StudentService {
         return student;
 
     }
-    public<List> Student getByStudentByRollNumber(String rollNumber)throws ParseException{
+    public List<Student> getByStudentByRollNumber(String rollNumber)throws ParseException{
         return studentInterface.getByStudentByRollNumber(rollNumber);
 
     }
 
-    public<List> Student getStudentsBySchoolId(Integer id)throws ParseException{
+    public List<Student> getStudentsBySchoolId(Integer id)throws ParseException{
         return studentInterface.getStudentsBySchoolId(id);
 
     }
 
-    public  <List>Student getStudentByCreatedDate(String date)throws ParseException{
+    public  List<Student> getStudentByCreatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date CreateDate= formatter.parse(date);
         return studentInterface.getStudentByCreatedDate(CreateDate);
 
 
     }
-    public  <List>Student getStudentByUpdatedDate(String date)throws ParseException{
+    public  List<Student> getStudentByUpdatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date UpdateDate= formatter.parse(date);
         return studentInterface.getStudentByUpdatedDate(UpdateDate);
@@ -98,7 +98,7 @@ public class StudentService {
         student.setActive(true);
         studentInterface.save(student);
     }
-    public  <List>Student setDeleteAllStudentsCreatedAfterDate(String date)throws ParseException{
+    public  List<Student> setDeleteAllStudentsCreatedAfterDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date SDate= formatter.parse(date);
         return studentInterface.setDeleteAllStudentsCreatedAfterDate(SDate);
@@ -111,21 +111,21 @@ public class StudentService {
 
     }
 
-public <List>Student setDeleteByStudentByRollNumber(String rollNumber)throws ParseException{
+public List<Student> setDeleteByStudentByRollNumber(String rollNumber)throws ParseException{
        return studentInterface.setDeleteByStudentByRollNumber(rollNumber) ;
 }
-    public <List>Student setDeleteStudentsBySchoolId(Integer id)throws ParseException{
+    public List<Student> setDeleteStudentsBySchoolId(Integer id)throws ParseException{
         return studentInterface.setDeleteStudentsBySchoolId(id) ;
     }
 
-    public  <List>Student setDeleteStudentsByCreatedDate(String date)throws ParseException{
+    public  List<Student> setDeleteStudentsByCreatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date CreateDate= formatter.parse(date);
         return studentInterface.setDeleteStudentsByCreatedDate(CreateDate);
 
 
     }
-    public  <List>Student setDeleteStudentsByUpdatedDate(String date)throws ParseException{
+    public  List<Student> setDeleteStudentsByUpdatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date UpDate= formatter.parse(date);
         return studentInterface.setDeleteStudentsByUpdatedDate(UpDate);
@@ -150,6 +150,21 @@ public <List>Student setDeleteByStudentByRollNumber(String rollNumber)throws Par
         student.setRollNumber("123");
         studentInterface.save(student);
 
+    }
+    public StringBuilder formatStudentObjectForSlack(Student student){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Id: *" + student.getId() + "*\n");
+        sb.append("Student Name: *" + student.getFirstName() + "*\n");
+        sb.append("Is Active: *" + student.getActive() + "*\n");
+        return sb;
+    }
+    public StringBuilder formatStudentListForSlack(List<Student> student){
+        StringBuilder mainStringBuilder = new StringBuilder();
+        for (Student studentFromListOfStudent: student) {
+            mainStringBuilder.append(formatStudentObjectForSlack(studentFromListOfStudent));
+            mainStringBuilder.append("\n");
+        }
+        return mainStringBuilder;
     }
 //    public List<Student> getStudentsBySchoolName(String schoolName){
 //        School school = schoolInterface.getBySchoolName(schoolName);

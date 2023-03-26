@@ -37,7 +37,7 @@ public class CourseService {
         Course course=courseInterface.getLatestUpdated();
         return course;
     }
-    public  <List>Course getCourseCreatedAfterDate(String date)throws ParseException {
+    public  List<Course> getCourseCreatedAfterDate(String date)throws ParseException {
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date SDate= formatter.parse(date);
         return courseInterface.getCourseCreatedAfterDate(SDate);
@@ -46,18 +46,18 @@ public class CourseService {
         Course course=courseInterface.getCourseName (courseName);
         return course;
     }
-    public  <List>Course getCourseByCreatedDate(String date)throws ParseException{
+    public  List<Course> getCourseByCreatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date CreateDate= formatter.parse(date);
         return courseInterface.getCourseByCreatedDate(CreateDate);
     }
-    public  <List>Course getCourseByUpdatedDate(String date)throws ParseException{
+    public  List<Course> getCourseByUpdatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date UpdateDate= formatter.parse(date);
         return courseInterface.getCourseByUpdatedDate(UpdateDate);
     }
 
-    public<List> Course getCourseByStudentId(Integer id)throws ParseException{
+    public List <Course> getCourseByStudentId(Integer id)throws ParseException{
         return courseInterface.getCourseByStudentId(id);
 
     }
@@ -114,6 +114,21 @@ public class CourseService {
         course.setName("Arabic");
         courseInterface.save(course);
 
+    }
+    public StringBuilder formatCourseObjectForSlack(Course course){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Id: *" + course.getId() + "*\n");
+        sb.append("Student Name: *" + course.getName() + "*\n");
+        sb.append("Is Active: *" + course.getActive() + "*\n");
+        return sb;
+    }
+    public StringBuilder formatCourseListForSlack(List<Course> course){
+        StringBuilder mainStringBuilder = new StringBuilder();
+        for (Course courseFromListOfCourse: course) {
+            mainStringBuilder.append(formatCourseObjectForSlack(courseFromListOfCourse));
+            mainStringBuilder.append("\n");
+        }
+        return mainStringBuilder;
     }
 //    public void updateCourse(Integer id, String name, Integer Student_id, Boolean isActive) {
 //        Course course = courseInterface.getCourseById(id);

@@ -29,22 +29,19 @@ import java.util.List;
         @Query(value ="SELECT s from Mark s where s.updateDate =(SELECT max(s.updateDate) from Mark s)")
         Mark getLatestUpdated();
         @Query(value ="SELECT s from Mark s where s.createDate >= :date")
-        <List>Mark getMarkCreatedAfterDate(@Param("date") Date date);
+        List<Mark> getMarkCreatedAfterDate(@Param("date") Date date);
 
         @Query(value = "SELECT s FROM Mark s WHERE s.grade= :grade")
         Mark getAllByGrade(@Param("grade") String grade);
 
         @Query(value = "SELECT s FROM Mark s WHERE s.obtainedMarks> :obtainedMarks")
-        Mark getByObtainedMarksMoreThan(@Param("obtainedMarks") Integer obtainedMarks);
+        List<Mark> getByObtainedMarksMoreThan(@Param("obtainedMarks") Integer obtainedMarks);
 
         @Query(value = "SELECT s FROM Mark s WHERE s.obtainedMarks< :obtainedMarks")
-        Mark getByObtainedMarksLessThan(@Param("obtainedMarks") Integer obtainedMarks);
-
-
-
+        List<Mark> getByObtainedMarksLessThan(@Param("obtainedMarks") Integer obtainedMarks);
 
         @Query(value ="SELECT s from Mark s where s.updateDate = :date")
-        <List>Mark getMarkByUpdatedDate(@Param("date") Date date);
+        List<Mark> getMarkByUpdatedDate(@Param("date") Date date);
 //        @Query(value ="SELECT s from Mark s where s.createDate = :date")
 //        <List>Mark getMarkByCreatedDate(@Param("date") Date date);
 

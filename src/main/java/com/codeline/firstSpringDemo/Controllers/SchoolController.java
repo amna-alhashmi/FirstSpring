@@ -36,66 +36,56 @@ public class SchoolController {
     @RequestMapping(value = "getAllActiveSchools", method = RequestMethod.GET)
     public List<School> getAllActiveSchools() {
         List<School> activeSchoolsList = schoolService.getAllActiveSchools();
-        for (School s : activeSchoolsList) {
-            slackClient.sendMessage("the id is :" + s.getId().toString() + "the name of school is:" + s.getName() + s.getActive());
-        }
+        slackClient.sendMessage(schoolService.formatSchoolListForSlack(activeSchoolsList).toString());
         return activeSchoolsList;
     }
 
     @RequestMapping(value = "getAllInActiveSchools", method = RequestMethod.GET)
     public List<School> getAllInActiveSchools() {
         List<School> inActiveSchoolsList = schoolService.getAllInActiveSchools();
-        for (School s : inActiveSchoolsList) {
-            slackClient.sendMessage("the id is :" + s.getId().toString() + "the name of school is:" + s.getName() + s.getActive());
-        }
+        slackClient.sendMessage(schoolService.formatSchoolListForSlack(inActiveSchoolsList).toString());
         return inActiveSchoolsList;
     }
 
     @RequestMapping(value = "getLatestRow", method = RequestMethod.GET)
     public School getLatestRow() {
         School school = schoolService.getLatestRow();
-        slackClient.sendMessage("the id is :" + school.getId().toString() + "the name of school is:" + school.getName());
+        slackClient.sendMessage(schoolService.formatSchoolObjectForSlack(school).toString());
         return school;
     }
 
     @RequestMapping(value = "getLatestUpdated", method = RequestMethod.GET)
     public School getLatestUpdated() {
         School school = schoolService.getLatestUpdated();
-        slackClient.sendMessage("the id is :" + school.getId().toString() + "the name of school is:" + school.getName() + school.getUpdateDate());
+        slackClient.sendMessage(schoolService.formatSchoolObjectForSlack(school).toString());
         return school;
     }
 
     @RequestMapping(value = "getSchoolCreatedAfterDate", method = RequestMethod.GET)
     public List<School> getSchoolCreatedAfterDate(@RequestParam String date) throws ParseException {
         List<School> school = schoolService.getSchoolCreatedAfterDate(date);
-        for (School S : school) {
-            slackClient.sendMessage("the id is :" + S.getId().toString() + "the name of school is:" + S.getName() + S.getCreateDate());
-        }
+        slackClient.sendMessage(schoolService.formatSchoolListForSlack(school).toString());
         return school;
     }
 
     @RequestMapping(value = "school/getBySchoolName", method = RequestMethod.GET)
     public School getBySchoolName(@RequestParam String SchoolName) {
         School school = schoolService.getBySchoolName(SchoolName);
-        slackClient.sendMessage("the id is :" + school.getId().toString() + "the name of school is:" + school.getName());
+        slackClient.sendMessage(schoolService.formatSchoolObjectForSlack(school).toString());
         return school;
     }
 
     @RequestMapping(value = "getSchoolByCreatedDate", method = RequestMethod.GET)
     public List<School> getSchoolByCreatedDate(@RequestParam String date) throws ParseException {
         List<School> school = schoolService.getSchoolByCreatedDate(date);
-        for (School S : school) {
-            slackClient.sendMessage("the id is :" + S.getId().toString() + "the name of school is:" + S.getName() + S.getCreateDate());
-        }
+        slackClient.sendMessage(schoolService.formatSchoolListForSlack(school).toString());
         return school;
     }
 
     @RequestMapping(value = "getSchoolByUpdatedDate", method = RequestMethod.GET)
     public List<School> getSchoolByUpdatedDate(@RequestParam String date) throws ParseException {
         List<School> school = schoolService.getSchoolByUpdatedDate(date);
-        for (School S : school) {
-            slackClient.sendMessage("the id is :" + S.getId().toString() + "the name of school is:" + S.getName() + S.getUpdateDate());
-        }
+        slackClient.sendMessage(schoolService.formatSchoolListForSlack(school).toString());
         return school;
     }
 
@@ -104,9 +94,7 @@ public class SchoolController {
     @RequestMapping(value = "getSchoolByNumberOfStudents", method = RequestMethod.GET)
     public List<School> getSchoolByNumberOfStudents(@RequestParam Integer numberOfStudents) {
         List<School> school = schoolService.getSchoolByNumberOfStudents(numberOfStudents);
-        for (School S : school) {
-            slackClient.sendMessage("the id is :" + S.getId().toString() + "the name of school is:" + S.getName());
-        }
+        slackClient.sendMessage(schoolService.formatSchoolListForSlack(school).toString());
         return school;
     }
 

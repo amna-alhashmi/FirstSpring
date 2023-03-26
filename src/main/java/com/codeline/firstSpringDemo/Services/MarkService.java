@@ -41,7 +41,7 @@ import java.util.List;
             Mark mark=markInterface.getLatestUpdated();
             return mark;
         }
-        public  <List>Mark getMarkCreatedAfterDate(String date)throws ParseException {
+        public  List<Mark> getMarkCreatedAfterDate(String date)throws ParseException {
             DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
             Date SDate= formatter.parse(date);
             return markInterface.getMarkCreatedAfterDate(SDate);
@@ -52,11 +52,11 @@ import java.util.List;
 
         }
 
-        public <List>Mark getByObtainedMarksMoreThan(Integer obtainedMarks)throws ParseException{
+        public List<Mark> getByObtainedMarksMoreThan(Integer obtainedMarks)throws ParseException{
             return markInterface.getByObtainedMarksMoreThan(obtainedMarks);
         }
 
-        public <List>Mark getByObtainedMarksLessThan(Integer obtainedMarks)throws ParseException{
+        public List<Mark> getByObtainedMarksLessThan(Integer obtainedMarks)throws ParseException{
             return markInterface.getByObtainedMarksLessThan(obtainedMarks);
         }
 
@@ -64,7 +64,7 @@ import java.util.List;
 
 
 
-        public  <List>Mark getMarkByUpdatedDate(String date)throws ParseException{
+        public  List<Mark> getMarkByUpdatedDate(String date)throws ParseException{
             DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
             Date UpdateDate= formatter.parse(date);
             return markInterface.getMarkByUpdatedDate(UpdateDate);
@@ -130,5 +130,20 @@ import java.util.List;
             mark.setGrade("A");
             markInterface.save(mark);
 
+        }
+        public StringBuilder formatMarkObjectForSlack(Mark mark){
+            StringBuilder sb = new StringBuilder();
+            sb.append("Id: *" + mark.getId() + "*\n");
+            sb.append("Student Name: *" + mark.getGrade() + "*\n");
+            sb.append("Is Active: *" + mark.getActive() + "*\n");
+            return sb;
+        }
+        public StringBuilder formatMarkListForSlack(List<Mark> mark){
+            StringBuilder mainStringBuilder = new StringBuilder();
+            for (Mark markFromListOfMark: mark) {
+                mainStringBuilder.append(formatMarkObjectForSlack(markFromListOfMark));
+                mainStringBuilder.append("\n");
+            }
+            return mainStringBuilder;
         }
     }
