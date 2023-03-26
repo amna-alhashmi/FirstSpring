@@ -61,6 +61,10 @@ public interface StudentInterface extends CrudRepository <Student,Integer> {
     <List>Student setDeleteStudentsByCreatedDate(@Param("date") Date date);
     @Query(value ="update Student s set s.isActive=false where s.updateDate = :date")
     <List>Student setDeleteStudentsByUpdatedDate(@Param("date") Date date);
+    @Query(value = "select DISTINCT school_id from student ",nativeQuery = true)
+    List<Integer> getUniqueSchoolIdsFromStudents();
+    @Query(value = "Select count(id) from student where id =?1", nativeQuery = true)
+    Integer getCountOfStudentBySchoolId(Integer schoolId);
 
 //@Query(value = "SELECT st FROM Student st WHERE st.school.id =:id")
 //List<Student> getStudentsBySchoolId(@Param("id") Integer id);

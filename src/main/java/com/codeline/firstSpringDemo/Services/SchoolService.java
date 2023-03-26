@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 @Service
 public class SchoolService {
     @Autowired
     SchoolInterface schoolInterface;
+    @Autowired
+    StudentInterface studentInterface;
     public List<School> getAllSchools(){
         return schoolInterface.getAllSchools();
     }
@@ -47,25 +51,41 @@ public class SchoolService {
         return school;
 
     }
-    public  <List>School getSchoolCreatedAfterDate(String date)throws ParseException{
+    public  List<School> getSchoolCreatedAfterDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date SDate= formatter.parse(date);
         return schoolInterface.getSchoolCreatedAfterDate(SDate);
 
 
     }
-    public  <List>School getSchoolByCreatedDate(String date)throws ParseException{
+    public  List<School> getSchoolByCreatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date CreateDate= formatter.parse(date);
         return schoolInterface.getSchoolByCreatedDate(CreateDate);
 
 
     }
-    public  <List>School getSchoolByUpdatedDate(String date)throws ParseException{
+    public  List<School> getSchoolByUpdatedDate(String date)throws ParseException{
         DateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
         Date UpdateDate= formatter.parse(date);
         return schoolInterface.getSchoolByUpdatedDate(UpdateDate);
+    }
+    public List<School> getSchoolByNumberOfStudents(Integer numberOfStudents){
+        List<Integer> schoolIds = studentInterface.getUniqueSchoolIdsFromStudents();
+        HashMap<Integer, Integer> idCountMap = new HashMap<>();
+        List<School> listOfSchoolByNumberOfStudent = new ArrayList<>();
 
+        for (Integer id: schoolIds) {
+            idCountMap.put(id, studentInterface.getCountOfStudentBySchoolId(id));
+        }
+
+        for (Integer id: idCountMap.keySet()) {
+            if(idCountMap.get(id) == numberOfStudents){
+                listOfSchoolByNumberOfStudent.add(schoolInterface.getSchoolById(id));
+            }
+        }
+
+        return listOfSchoolByNumberOfStudent;
 
     }
 //    public List<School>getSchoolByNumberOfStudents(Integer numberOfStudent){
@@ -123,6 +143,27 @@ public class SchoolService {
         schoolInterface.save(school);
 
     }
+    public StringBuilder formatSchoolObjectForSlack(School school){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Id: *" + school.getId() + "*\n");
+        sb.append("School Name: *" + school.getName() + "*\n");
+        sb.append("Is Active: *" + school.getActive() + "*\n");
+        return sb;
+    }
+
+    public StringBuilder formatSchoolListForSlack(List<School> schools){
+        StringBuilder mainStringBuilder = new StringBuilder();
+        for (School schoolFromListOfSchools: schools) {
+            mainStringBuilder.append(formatSchoolObjectForSlack(schoolFromListOfSchools));
+            mainStringBuilder.append("\n");
+        }
+        return mainStringBuilder;
+    }
+
+
+
+
+
 //    public void deleteSchoolById(Integer id){
 //        School schoolToDelete = schoolInterface.findById(id).get().getSchool();
 //        schoolInterface.deleteSchoolById(schoolToDelete.getId());

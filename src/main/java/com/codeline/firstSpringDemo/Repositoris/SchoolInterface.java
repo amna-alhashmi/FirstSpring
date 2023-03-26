@@ -31,16 +31,15 @@ public interface SchoolInterface extends JpaRepository<School,Integer> {
     @Query(value ="SELECT s from School s where s.updateDate =(SELECT max(s.updateDate) from School s)")
     School getLatestUpdated();
     @Query(value ="SELECT s from School s where s.createDate >= :date")
-    <List>School getSchoolCreatedAfterDate(@Param("date") Date date);
+    List<School> getSchoolCreatedAfterDate(@Param("date") Date date);
 
     @Query(value ="SELECT s from School s where s.createDate = :date")
-    <List>School getSchoolByCreatedDate(@Param("date") Date date);
+    List<School> getSchoolByCreatedDate(@Param("date") Date date);
     @Query(value ="SELECT s from School s where s.updateDate = :date")
-    <List>School getSchoolByUpdatedDate(@Param("date") Date date);
+    List<School> getSchoolByUpdatedDate(@Param("date") Date date);
 //    @Query(Value="select st from Student st where st.school.id=:id")
 //    List<Student>getSchoolByNumberOfStudents(@Param("id")Integer id);
-//    @Query(value = "select DISTINCT school_id from student ",nativeQuery = true)
-//    List<School>
+
     @Query(value="update School s set s.isActive=false where s.id=:id")
     School setDeleteById(@Param("id")Integer id);
     @Query(value="update School s set s.isActive=false")
