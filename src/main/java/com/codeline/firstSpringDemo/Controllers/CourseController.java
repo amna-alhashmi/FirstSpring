@@ -21,7 +21,7 @@ public class CourseController {
     @RequestMapping(value = "course/getById", method = RequestMethod.GET)
     public Course getCourseById(@RequestParam Integer courseId) {
         Course course = courseService.getCourseById(courseId);
-        slackClient.sendMessage(courseService.formatCourseObjectForSlack(course).toString());
+     //   slackClient.sendMessage(courseService.formatCourseObjectForSlack(course).toString());
         return course;
     }
     @RequestMapping(value = "course/getAll", method = RequestMethod.GET)

@@ -21,7 +21,7 @@ public class MarkController {
     @RequestMapping(value = "Mark/getById", method = RequestMethod.GET)
     public Mark getMarkById(@RequestParam Integer MarkId) {
         Mark mark = markService.getMarkById(MarkId);
-        slackClient.sendMessage(markService.formatMarkObjectForSlack(mark).toString());
+//        slackClient.sendMessage(markService.formatMarkObjectForSlack(mark).toString());
         return mark;
     }
     @RequestMapping(value = "mark/getAll", method = RequestMethod.GET)

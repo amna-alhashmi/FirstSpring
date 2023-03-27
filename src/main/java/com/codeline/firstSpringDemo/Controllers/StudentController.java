@@ -21,7 +21,7 @@ public class StudentController {
     @RequestMapping(value = "student/getById", method = RequestMethod.GET)
     public Student getStudentById(@RequestParam Integer studentId) {
         Student student = studentService.getStudentById(studentId);
-        slackClient.sendMessage(studentService.formatStudentObjectForSlack(student).toString());
+        //slackClient.sendMessage(studentService.formatStudentObjectForSlack(student).toString());
         return student;
     }
     @RequestMapping(value = "student/getAll", method = RequestMethod.GET)
