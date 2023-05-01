@@ -30,5 +30,40 @@ public class ReportController {
 
         reportServices.getAverageMarkForEachCourse();
     }
+    @RequestMapping(value = "topPerformingStudents",method = RequestMethod.GET)
 
+    public void getTopPerformingStudents() throws Exception{
+
+        reportServices.getTopPerformingStudents();
+    }
+    @RequestMapping(value = "overall",method = RequestMethod.GET)
+
+    public void getOverallPerformanceOfEachStudent() throws Exception{
+
+        reportServices.getOverallPerformanceOfEachStudent();
+    }
+    @RequestMapping(value = "TOTAL",method = RequestMethod.GET)
+
+    public void getTotalNumberOfStudents() throws Exception{
+
+        reportServices.getTotalNumberOfStudents();
+    }
+    @RequestMapping(value = "Grades",method = RequestMethod.GET)
+
+    public void getDistributionOfGrades() throws Exception{
+
+        reportServices.getDistributionOfGrades();
+    }
+    @RequestMapping(value = "TopPerformaingCourses",method = RequestMethod.GET)
+
+    public void getTopPerformaingCourses() throws Exception{
+
+        reportServices.getTopPerformaingCourses();
+    }
+    @RequestMapping(value = "overAllPerformance",method = RequestMethod.GET)
+
+    public void getOverallPerformanceOfEachSchool() throws Exception{
+
+        reportServices.getOverallPerformanceOfEachSchool();
+    }
 }

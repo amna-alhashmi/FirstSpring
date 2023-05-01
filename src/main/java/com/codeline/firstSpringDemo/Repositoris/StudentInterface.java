@@ -66,6 +66,10 @@ public interface StudentInterface extends CrudRepository <Student,Integer> {
     @Query(value = "Select count(id) from student where id =?1", nativeQuery = true)
     Integer getCountOfStudentBySchoolId(Integer schoolId);
 
+    @Query(value = "Select count(school_id) from student where school_id=?", nativeQuery = true)
+    Integer getTotalNumberOfStudents(Integer school_id);
+    @Query(value = "Select count(obtained_marks) from student where obtained_marks=?", nativeQuery = true)
+    Integer getDistributionOfGrades(Integer obtained_marks);
 //@Query(value = "SELECT st FROM Student st WHERE st.school.id =:id")
 //List<Student> getStudentsBySchoolId(@Param("id") Integer id);
 

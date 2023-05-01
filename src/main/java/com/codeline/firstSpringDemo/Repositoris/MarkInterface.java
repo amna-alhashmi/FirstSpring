@@ -3,6 +3,7 @@ package com.codeline.firstSpringDemo.Repositoris;
 import com.codeline.firstSpringDemo.Models.Mark;
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -65,4 +66,35 @@ import java.util.List;
         <List>Mark setDeleteMarkByCreatedDate(@Param("date") Date date);
         @Query(value ="update Mark s set s.isActive=false where s.updateDate = :date")
         <List>Mark setDeleteMarkByUpdatedDate(@Param("date") Date date);
+        @Query(value = "SELECT count(m) from Mark m WHERE m.course.name = :courseName")
+        Integer getNumberOfMarksByCourseName(@Param("courseName") String courseName);
+        @Query("SELECT m FROM Mark m ORDER BY m.obtainedMarks DESC")
+        List<Mark>getTopPerformingStudents();
+        @Query(value = "SELECT AVG(s.obtainedMarks) from Mark s where obtainedMarks=:obtainMark")
+        Double getOverallPerformanceOfEachStudent(@Param("obtainMark")Integer obtainMark);
+        @Query(value = "SELECT s FROM Mark s ORDER BY s.obtainedMarks DESC")
+        List<Mark>getTopPerformaingCourses();
+        @Query("select m from Mark m where m.course.name =:courseName")
+        List<Mark> getAllMarkByCourseName(@Param("courseName")String courseName);
+        @Query(value = "Select SUM(s.obtainedMarks)from Mark s where s.course.student.id=: studentId")
+        Integer getSumOfMarks(@Param("studentId")Integer studentId);
+        @Query(value = "SELECT count(m.obtainedMarks) from Mark m WHERE m.course.name=: courseName")
+        Double getCountOfMarks(@Param("courseName")String courseName);
+        @Query(value = "select avg(m.obtainedMarks) from Mark m where m.course.student.id = :studentId ")
+        Double getAvgOfMarksByStudentId(@Param("studentId") Integer studentId);
+
+        @Query(value = " select Distinct(m.grade) from Mark m ")
+        List<String> getDistinctGrades();
+        @Query(value = " select count(m) from Mark m where m.course.name = :courseName And m.grade = :grade ")
+        Integer getCountOfMarksByGradeAndCourseName(@Param("grade") String grade, @Param("courseName") String courseName);
+
+
+
+
+//        @Query(value = "Select SUM (m.obtainedMarks) from Mark m where m.course.student.id = :studentId ")
+//        Integer sumOfMarksByStudentId(@Param("studentId") Integer studentId);
+
+//        @Query(value = "SELECT avg (s.obtainedMarks) FROM Mark s")
+//        List<Mark>getOverallPerformanceOfEachStudent();
+
     }

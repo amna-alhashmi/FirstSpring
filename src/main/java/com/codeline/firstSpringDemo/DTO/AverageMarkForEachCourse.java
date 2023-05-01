@@ -15,4 +15,9 @@ public class AverageMarkForEachCourse {
         this.courseName = courseName;
         this.averageMark = averageMark;
     }
+
+
+    public AverageMarkForEachCourse() {
+
+    }
 }

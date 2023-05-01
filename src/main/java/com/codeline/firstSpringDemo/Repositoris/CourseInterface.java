@@ -19,6 +19,8 @@ import java.util.List;
         Course getCourseById(@Param("courseId")Integer id);
         @Query(value = "SELECT s FROM Course s")
         List<Course> getAllCourse();
+        @Query(value = "Select c.name from Course c")
+        List<String> getAllCoursesNames();
         @Query(value = "SELECT s from Course s where s.isActive = true")
         List<Course> getAllActive();
         @Query(value = "SELECT s from Course s where s.isActive = false")
@@ -57,4 +59,6 @@ Course getAllActiveCoursesForAStudent(@Param("studentName")String studentName );
         <List>Course setDeleteCourseByCreatedDate(@Param("date") Date date);
         @Query(value ="update Course s set s.isActive=false where s.updateDate = :date")
         <List>Course setDeleteCourseByUpdatedDate(@Param("date") Date date);
+        @Query(value="select c from Course c where c.student.FirstName= :course_name")
+        List<Course> getAllCourseByStudentName(@Param("course_name")String course_name );
     }

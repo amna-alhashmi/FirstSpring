@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="topPerformingStudentsForEachSchool" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b689d2d-056b-48ac-8912-8f24d56bb074">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TopPerforming" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="29b2bab1-4bfc-4db9-8df9-9af7b7d143ce">
 
-    <field name="SchoolName" class="java.lang.String">
+    <field name="schoolName" class="java.lang.String">
 
     </field>
-    <field name=" TopPerformingStudent" class="java.lang.String">
+    <field name="topPerformingStudent" class="java.lang.String">
 
     </field>
     <background>
@@ -14,16 +14,16 @@
     <title>
         <band height="72">
             <frame>
-                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="7f58935b-5668-4a3e-85d1-41e556d660bf"/>
+                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="85728ce3-e7d9-4aac-85f7-3d54f2c57ef8"/>
                 <staticText>
-                    <reportElement x="20" y="20" width="400" height="43" forecolor="#FFFFFF" uuid="3ab444a0-930a-4e43-8958-f34e396c302c"/>
+                    <reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="b1672265-1cb8-41de-b96d-dabfa34394c6"/>
                     <textElement>
                         <font size="34" isBold="true"/>
                     </textElement>
-                    <text><![CDATA[topPerformingStudentsForEachSchool]]></text>
+                    <text><![CDATA[TopPerformingStudent]]></text>
                 </staticText>
                 <staticText>
-                    <reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="cfd4ba69-48cd-474a-b937-5cd6540ea3bf"/>
+                    <reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="0f5bbb9a-f621-4eca-b6ed-99ee27204477"/>
                     <textElement textAlignment="Right">
                         <font size="14" isBold="false"/>
                     </textElement>
@@ -38,11 +38,11 @@
     <columnHeader>
         <band height="21">
             <line>
-                <reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="797ad909-f597-494c-a57f-b27924dd3884"/>
+                <reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="87c05714-4cb7-4dd4-a6d8-efe9a6002a86"/>
             </line>
             <staticText>
-                <reportElement mode="Opaque" x="0" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ffd4b7c3-9c25-48d8-ac27-6687799f6e5b">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9ef96810-e433-4dad-8144-69ce73180320"/>
+                <reportElement mode="Opaque" x="0" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9698ac2a-3cd6-4248-809b-ecf3d2bbf196">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd3af892-1e21-4e14-ae60-6471af529f8a"/>
                 </reportElement>
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
@@ -50,38 +50,38 @@
                 <text><![CDATA[SchoolName]]></text>
             </staticText>
             <staticText>
-                <reportElement mode="Opaque" x="277" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="fb175f76-a287-4928-adee-7dc61f713573">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8de29552-55a0-4d60-a039-bda337e0a58c"/>
+                <reportElement mode="Opaque" x="277" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="91b53af6-c032-40b0-b69e-f8977e96b13b">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ffae2d3-a5da-458c-944b-a10d9ba4841a"/>
                 </reportElement>
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[ TopPerformingStudent]]></text>
+                <text><![CDATA[TopPerformingStudent]]></text>
             </staticText>
         </band>
     </columnHeader>
     <detail>
         <band height="20">
             <line>
-                <reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="0b0d450d-f6c7-4ffe-a1d9-6c69ce74ea57"/>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="9cf64297-1384-4257-95b1-d8041d6604fb"/>
             </line>
             <textField textAdjust="StretchHeight">
-                <reportElement x="0" y="0" width="277" height="20" uuid="7e1d842d-ac28-47cd-a8b0-a0753d65c2db">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9ef96810-e433-4dad-8144-69ce73180320"/>
+                <reportElement x="0" y="0" width="277" height="20" uuid="57f7aaee-e2fe-4889-8860-b0b869efcbd7">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fd3af892-1e21-4e14-ae60-6471af529f8a"/>
                 </reportElement>
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{SchoolName}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{schoolName}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
-                <reportElement x="277" y="0" width="277" height="20" uuid="2ee4061a-19ba-4234-9027-054644d1ecce">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8de29552-55a0-4d60-a039-bda337e0a58c"/>
+                <reportElement x="277" y="0" width="277" height="20" uuid="c20cae20-676d-4bdb-ba1c-44b9f8edbe01">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6ffae2d3-a5da-458c-944b-a10d9ba4841a"/>
                 </reportElement>
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{TopPerformingStudent}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{topPerformingStudent}]]></textFieldExpression>
             </textField>
         </band>
     </detail>
@@ -91,16 +91,16 @@
     <pageFooter>
         <band height="17">
             <textField>
-                <reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="4f9598fc-e8e2-4b95-abaa-ca832f7f0a51"/>
+                <reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="24c13b1b-61cc-417f-aba7-e0323ff766c3"/>
                 <textElement textAlignment="Right"/>
                 <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
             </textField>
             <textField evaluationTime="Report">
-                <reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="806519ba-4937-474b-8470-056e9b8128dc"/>
+                <reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="669653cc-4b8e-4e61-8df1-cb552a26860c"/>
                 <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
             </textField>
             <textField pattern="EEEEE dd MMMMM yyyy">
-                <reportElement x="0" y="4" width="100" height="13" uuid="36cf10db-ba83-4daf-82b4-020fffd43c2c"/>
+                <reportElement x="0" y="4" width="100" height="13" uuid="61288e6f-68a4-4125-adac-bcdc50dbe946"/>
                 <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
             </textField>
         </band>
