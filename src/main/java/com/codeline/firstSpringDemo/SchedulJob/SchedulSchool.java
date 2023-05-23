@@ -44,7 +44,7 @@ List<School>schoolList=schoolService.getAllActiveSchools();
 slackClient.sendMessage("This is for school");
     for (School s:schoolList)
     {
-        slackClient.sendMessage("the id is :"+s.getId().toString()+"the name of student is:"+s.getName());
+        slackClient.sendMessage("the id is :"+s.getId().toString()+"the name of student is:"+s.getName()+s.getActive());
     }
     return schoolList;
 }
