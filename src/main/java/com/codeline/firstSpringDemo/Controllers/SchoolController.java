@@ -1,6 +1,7 @@
 package com.codeline.firstSpringDemo.Controllers;
 
 import com.codeline.firstSpringDemo.Models.School;
+import com.codeline.firstSpringDemo.RequestObject.SchoolRequest;
 import com.codeline.firstSpringDemo.RequestObject.SchoolRequestForCreateDateUpdate;
 import com.codeline.firstSpringDemo.Services.SchoolService;
 import com.codeline.firstSpringDemo.Slack.SlackClient;
@@ -136,8 +137,8 @@ public class SchoolController {
     }
 
     @RequestMapping(value = "createSchool", method = RequestMethod.POST)
-    public String createSchool(@RequestBody) {
-        schoolService.createSchool();
+    public String createSchool(@RequestBody SchoolRequest schoolRequest) {
+        schoolService.createSchool(schoolRequest);
 
         return "School add successful";
     }
