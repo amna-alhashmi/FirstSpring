@@ -62,7 +62,7 @@ public class SchedulCourse {
     }
     @Scheduled(cron ="0 */15 * * * *")
     public String createCourse(@RequestBody CourseRequest courseRequest) {
-        courseService.createCourse();
+        courseService.createCourse(courseRequest);
         return "Course add successful";
     }
 }
