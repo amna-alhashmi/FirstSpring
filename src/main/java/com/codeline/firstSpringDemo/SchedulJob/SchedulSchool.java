@@ -48,5 +48,14 @@ slackClient.sendMessage("This is for school");
     }
     return schoolList;
 }
-
+@Scheduled(cron = "0 */15 * * * *")
+public List<School> getAllInActiveSchools(){
+    List<School>schoolList=schoolService.getAllInActiveSchools();
+    slackClient.sendMessage("This is for school");
+    for (School s:schoolList)
+    {
+        slackClient.sendMessage("the id is :"+s.getId().toString()+"the name of student is:"+s.getName()+s.getActive());
+    }
+    return schoolList;
+}
 }
