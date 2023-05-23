@@ -3,6 +3,7 @@ package com.codeline.firstSpringDemo.Controllers;
 import com.codeline.firstSpringDemo.Models.Course;
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
+import com.codeline.firstSpringDemo.RequestObject.CourseRequest;
 import com.codeline.firstSpringDemo.RequestObject.SchoolRequestForCreateDateUpdate;
 import com.codeline.firstSpringDemo.Services.CourseService;
 import com.codeline.firstSpringDemo.Slack.SlackClient;
@@ -129,7 +130,7 @@ public Course getAllActiveCoursesForAStudent(@RequestParam String studentName)th
     }
 
     @RequestMapping(value = "createCourse", method = RequestMethod.POST)
-    public String createCourse(@RequestBody) {
+    public String createCourse(@RequestBody CourseRequest courseRequest) {
         courseService.createCourse();
         return "Course add successful";
     }
