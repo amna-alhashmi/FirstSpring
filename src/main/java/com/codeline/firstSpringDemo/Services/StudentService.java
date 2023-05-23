@@ -23,7 +23,7 @@ public class StudentService {
     StudentInterface studentInterface;
     public void addStudent(StudentRequest studentRequest){
         Student student=new Student();
-        student.setFirstName("Amna");
+        student.setFirstName(studentRequest.getFirstName());
         student.setLastName("Alhashmi");
         studentInterface.save(student);
     }
