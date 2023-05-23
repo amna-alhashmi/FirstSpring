@@ -131,7 +131,7 @@ public class SchoolService {
     }
     public void createSchool(SchoolRequest schoolRequest) {
         School school = new School();
-        school.setName("ABC School");
+        school.setName(schoolRequest.getName());
         schoolInterface.save(school);
     }
     public void updateSchool(String date, Integer id) throws ParseException {
