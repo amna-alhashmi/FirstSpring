@@ -2,6 +2,7 @@ package com.codeline.firstSpringDemo.SchedulJob;
 
 import com.codeline.firstSpringDemo.Models.Course;
 import com.codeline.firstSpringDemo.Models.Student;
+import com.codeline.firstSpringDemo.RequestObject.CourseRequest;
 import com.codeline.firstSpringDemo.Services.CourseService;
 import com.codeline.firstSpringDemo.Services.StudentService;
 import com.codeline.firstSpringDemo.Slack.SlackClient;
@@ -60,7 +61,7 @@ public class SchedulCourse {
         return course;
     }
     @Scheduled(cron ="0 */15 * * * *")
-    public String createCourse(@RequestBody) {
+    public String createCourse(@RequestBody CourseRequest courseRequest) {
         courseService.createCourse();
         return "Course add successful";
     }
