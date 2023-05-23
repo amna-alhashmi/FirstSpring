@@ -63,6 +63,12 @@ public School getLatestRow(){
     School school=schoolService.getLatestRow();
     slackClient.sendMessage("the id is :"+school.getId().toString()+"the name of school is:"+school.getName());
     return school;
-
 }
+    @Scheduled(cron = "0 */15 * * * *")
+    public School getLatestUpdated(){
+        School school=schoolService.getLatestUpdated();
+        slackClient.sendMessage("the id is :"+school.getId().toString()+"the name of school is:"+school.getName());
+        return school;
+
+    }
 }
