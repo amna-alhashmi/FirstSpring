@@ -103,7 +103,7 @@ public class CourseService {
     }
     public void createCourse(CourseRequest courseRequest) {
         Course course = new Course();
-        course.setName("Arabic");
+        course.setName(courseRequest.getName());
         courseInterface.save(course);
     }
     public void updateCourse(String date, Integer id) throws ParseException {
