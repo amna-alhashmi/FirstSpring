@@ -8,4 +8,5 @@ import lombok.Setter;
 @Getter
 @Data
 public class SchoolRequest {
+    String name;
 }
