@@ -4,6 +4,7 @@ import com.codeline.firstSpringDemo.Models.Mark;
 import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Repositoris.SchoolInterface;
 import com.codeline.firstSpringDemo.Repositoris.StudentInterface;
+import com.codeline.firstSpringDemo.RequestObject.SchoolRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -128,7 +129,7 @@ public class SchoolService {
 
 
     }
-    public void createSchool() {
+    public void createSchool(SchoolRequest schoolRequest) {
         School school = new School();
         school.setName("ABC School");
         schoolInterface.save(school);
