@@ -37,7 +37,16 @@ public class SchedulSchool {
         School school=schoolService.getBySchoolName(schoolName);
         slackClient.sendMessage("the id is :"+school.getId().toString()+"the name of school is:"+school.getName());
         return school;
-
     }
+@Scheduled(cron = "0 */15 * * * *")
+public List<School> getAllActiveSchools(){
+List<School>schoolList=schoolService.getAllActiveSchools();
+slackClient.sendMessage("This is for school");
+    for (School s:schoolList)
+    {
+        slackClient.sendMessage("the id is :"+s.getId().toString()+"the name of student is:"+s.getName());
+    }
+    return schoolList;
+}
 
 }
