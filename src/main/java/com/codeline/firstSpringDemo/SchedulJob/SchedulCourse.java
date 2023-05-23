@@ -8,6 +8,7 @@ import com.codeline.firstSpringDemo.Slack.SlackClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -59,7 +60,7 @@ public class SchedulCourse {
         return course;
     }
     @Scheduled(cron ="0 */15 * * * *")
-    public String createCourse() {
+    public String createCourse(@RequestBody) {
         courseService.createCourse();
         return "Course add successful";
     }
