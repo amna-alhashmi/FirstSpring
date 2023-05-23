@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -69,6 +73,6 @@ public School getLatestRow(){
         School school=schoolService.getLatestUpdated();
         slackClient.sendMessage("the id is :"+school.getId().toString()+"the name of school is:"+school.getName());
         return school;
-
     }
+
 }

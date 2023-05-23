@@ -88,13 +88,9 @@ import java.util.List;
         @Query(value = " select count(m) from Mark m where m.course.name = :courseName And m.grade = :grade ")
         Integer getCountOfMarksByGradeAndCourseName(@Param("grade") String grade, @Param("courseName") String courseName);
 
-
-
-
-//        @Query(value = "Select SUM (m.obtainedMarks) from Mark m where m.course.student.id = :studentId ")
-//        Integer sumOfMarksByStudentId(@Param("studentId") Integer studentId);
-
-//        @Query(value = "SELECT avg (s.obtainedMarks) FROM Mark s")
-//        List<Mark>getOverallPerformanceOfEachStudent();
+        @Query(value = "Select SUM (m.obtainedMarks) from Mark m where m.course.student.id = :studentId ")
+        Integer sumOfMarksByStudentId(@Param("studentId") Integer studentId);
+        @Query(value = "SELECT avg (s.obtainedMarks) FROM Mark s")
+        List<Mark>getOverallPerformanceOfEachStudent();
 
     }
