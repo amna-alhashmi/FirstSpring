@@ -4,6 +4,7 @@ import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
 import com.codeline.firstSpringDemo.Repositoris.SchoolInterface;
 import com.codeline.firstSpringDemo.Repositoris.StudentInterface;
+import com.codeline.firstSpringDemo.RequestObject.StudentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class StudentService {
     SchoolInterface schoolInterface;
     @Autowired
     StudentInterface studentInterface;
-    public void addStudent(){
+    public void addStudent(StudentRequest studentRequest){
         Student student=new Student();
         student.setFirstName("Amna");
         student.setLastName("Alhashmi");
