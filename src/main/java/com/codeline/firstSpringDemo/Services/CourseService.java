@@ -5,6 +5,7 @@ import com.codeline.firstSpringDemo.Models.School;
 import com.codeline.firstSpringDemo.Models.Student;
 import com.codeline.firstSpringDemo.Repositoris.CourseInterface;
 import com.codeline.firstSpringDemo.Repositoris.StudentInterface;
+import com.codeline.firstSpringDemo.RequestObject.CourseRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -100,7 +101,7 @@ public class CourseService {
 
 
     }
-    public void createCourse() {
+    public void createCourse(CourseRequest courseRequest) {
         Course course = new Course();
         course.setName("Arabic");
         courseInterface.save(course);
