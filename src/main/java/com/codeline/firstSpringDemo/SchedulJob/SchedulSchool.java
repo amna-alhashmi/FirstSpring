@@ -27,5 +27,10 @@ public class SchedulSchool {
         return school;
     }
     @Scheduled(cron = "0 */15 * * * *")
+    public School getSchoolById(Integer id){
+        School school= schoolService.getSchoolById(id);
+        slackClient.sendMessage("the id is :"+school.getId().toString()+"the name of school is:"+school.getName());
+        return school;
+    }
 
 }
