@@ -1,11 +1,13 @@
 package com.codeline.firstSpringDemo.SchedulJob;
 
 import com.codeline.firstSpringDemo.Models.School;
+import com.codeline.firstSpringDemo.RequestObject.SchoolRequest;
 import com.codeline.firstSpringDemo.Services.SchoolService;
 import com.codeline.firstSpringDemo.Slack.SlackClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -58,8 +60,8 @@ public class Schedul {
         return school;
     }
     @Scheduled(cron ="0 */15 * * * *")
-    public String createSchool() {
-        schoolService.createSchool();
+    public String createSchool(@RequestBody SchoolRequest schoolRequest) {
+        schoolService.createSchool(schoolRequest);
 
         return "School add successful";
     }
