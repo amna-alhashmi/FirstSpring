@@ -24,7 +24,7 @@ public class StudentService {
     public void addStudent(StudentRequest studentRequest){
         Student student=new Student();
         student.setFirstName(studentRequest.getFirstName());
-        student.setLastName("Alhashmi");
+        student.setLastName(studentRequest.getLastName());
         studentInterface.save(student);
     }
     public Student getStudentById(Integer id){
