@@ -32,5 +32,6 @@ public class SchedulSchool {
         slackClient.sendMessage("the id is :"+school.getId().toString()+"the name of school is:"+school.getName());
         return school;
     }
+    @Scheduled(cron = "0 */15 * * * *")
 
 }
