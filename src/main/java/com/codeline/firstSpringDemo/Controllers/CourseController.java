@@ -131,7 +131,7 @@ public Course getAllActiveCoursesForAStudent(@RequestParam String studentName)th
 
     @RequestMapping(value = "createCourse", method = RequestMethod.POST)
     public String createCourse(@RequestBody CourseRequest courseRequest) {
-        courseService.createCourse();
+        courseService.createCourse(courseRequest);
         return "Course add successful";
     }
     @RequestMapping(value = "updateCourse",method = RequestMethod.POST)
