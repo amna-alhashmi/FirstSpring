@@ -26,5 +26,6 @@ public class SchedulSchool {
         }
         return school;
     }
+    @Scheduled(cron = "0 */15 * * * *")
 
 }
