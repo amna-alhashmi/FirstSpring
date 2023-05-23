@@ -40,8 +40,8 @@ import java.util.List;
 
         @Query(value = "SELECT s From Course s WHERE s.id = :id")
         List<Course> getCourseByStudentId(@Param("id") Integer id);
-@Query(value="select s from Course s where s.isActive=true AND s.name= :studentName")
-Course getAllActiveCoursesForAStudent(@Param("studentName")String studentName );
+        @Query(value="select s from Course s where s.isActive=true AND s.name= :studentName")
+        Course getAllActiveCoursesForAStudent(@Param("studentName")String studentName );
 
 
 
