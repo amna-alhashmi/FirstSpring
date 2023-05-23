@@ -136,7 +136,7 @@ public class SchoolController {
     }
 
     @RequestMapping(value = "createSchool", method = RequestMethod.POST)
-    public String createSchool() {
+    public String createSchool(@RequestBody) {
         schoolService.createSchool();
 
         return "School add successful";
