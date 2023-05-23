@@ -58,4 +58,11 @@ public List<School> getAllInActiveSchools(){
     }
     return schoolList;
 }
+@Scheduled(cron = "0 */15 * * * *")
+public School getLatestRow(){
+    School school=schoolService.getLatestRow();
+    slackClient.sendMessage("the id is :"+school.getId().toString()+"the name of school is:"+school.getName());
+    return school;
+
+}
 }
